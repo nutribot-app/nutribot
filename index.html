@@ -1,0 +1,847 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>NutriBot – Aprender a Comer com Saúde</title>
+<meta name="description" content="NutriBot: uma aplicação para aprender a comer com saúde, pensada para o 4.º ano.">
+<meta name="theme-color" content="#1f7a46">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Cpath%20d%3D%22M32%2015V8%22%20stroke%3D%22%231d6b3f%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22/%3E%3Cpath%20d%3D%22M32%208c1-4%205-6%209-5-1%204-5%206-9%205z%22%20fill%3D%22%236cc46a%22/%3E%3Crect%20x%3D%225%22%20y%3D%2227%22%20width%3D%226%22%20height%3D%2212%22%20rx%3D%223%22%20fill%3D%22%231d6b3f%22/%3E%3Crect%20x%3D%2253%22%20y%3D%2227%22%20width%3D%226%22%20height%3D%2212%22%20rx%3D%223%22%20fill%3D%22%231d6b3f%22/%3E%3Crect%20x%3D%229%22%20y%3D%2214%22%20width%3D%2246%22%20height%3D%2238%22%20rx%3D%2215%22%20fill%3D%22%232e9d5b%22/%3E%3Crect%20x%3D%2215%22%20y%3D%2221%22%20width%3D%2234%22%20height%3D%2223%22%20rx%3D%2210%22%20fill%3D%22%23eafbf0%22/%3E%3Ccircle%20cx%3D%2225%22%20cy%3D%2231%22%20r%3D%223.6%22%20fill%3D%22%2315301f%22/%3E%3Ccircle%20cx%3D%2239%22%20cy%3D%2231%22%20r%3D%223.6%22%20fill%3D%22%2315301f%22/%3E%3Ccircle%20cx%3D%2226.2%22%20cy%3D%2229.8%22%20r%3D%221.1%22%20fill%3D%22%23fff%22/%3E%3Ccircle%20cx%3D%2240.2%22%20cy%3D%2229.8%22%20r%3D%221.1%22%20fill%3D%22%23fff%22/%3E%3Cpath%20d%3D%22M27%2037.5c3%202.6%207%202.6%2010%200%22%20stroke%3D%22%2315301f%22%20stroke-width%3D%222.4%22%20fill%3D%22none%22%20stroke-linecap%3D%22round%22/%3E%3Ccircle%20cx%3D%2219.5%22%20cy%3D%2237%22%20r%3D%222.3%22%20fill%3D%22%23f6a48f%22%20opacity%3D%22.85%22/%3E%3Ccircle%20cx%3D%2244.5%22%20cy%3D%2237%22%20r%3D%222.3%22%20fill%3D%22%23f6a48f%22%20opacity%3D%22.85%22/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Andika:wght@400;700&family=Grandstander:wght@600;800&display=swap">
+<style>
+html,body{margin:0;padding:0}
+img{max-width:100%}
+[hidden]:not([hidden=until-found i]){display:none!important}
+</style>
+<style>
+:root{
+  /* Layout: caderno quadriculado do 1.º ciclo — coluna de app até 1040px, cartões sobre a grelha, cores dos 7 grupos da Roda dos Alimentos */
+  --paper:#f5f8fc;
+  --grid:rgba(66,128,200,.10);
+  --surface:#ffffff;
+  --surface-2:#edf2f9;
+  --ink:#1b2747;
+  --ink-soft:#56617e;
+  --line:#d3dcea;
+  --bot:#23854d;
+  --btn-bg:#1f7a46;
+  --btn-fg:#ffffff;
+  --user-bg:#dbe8fa;
+  --focus:#2f7fd0;
+  --ok:#1b7a42;
+  --ok-bg:#e1f3e7;
+  --no:#b5372b;
+  --no-bg:#fbe6e2;
+  --tip-bg:#fff3d1;
+  --tip-line:#e2b93e;
+  --icon-line:rgba(27,39,71,.5);
+  --g-cereais:#d4952b;
+  --g-horticolas:#3d9a4b;
+  --g-fruta:#e25a3c;
+  --g-laticinios:#3f86d4;
+  --g-proteina:#b2477a;
+  --g-leguminosas:#8a6a3d;
+  --g-gorduras:#e0b928;
+  --g-agua:#4fbcd6;
+  --f-display:'Grandstander','Trebuchet MS',system-ui,sans-serif;
+  --f-body:'Andika','Segoe UI',system-ui,-apple-system,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0f1729;--grid:rgba(120,165,230,.07);--surface:#17213a;--surface-2:#1f2b48;--ink:#ecf1fa;--ink-soft:#a6b2cc;--line:#2d3a5a;
+    --bot:#4cc47f;--btn-bg:#4cc47f;--btn-fg:#0a1b11;--user-bg:#24406b;--focus:#7db7f2;
+    --ok:#62d391;--ok-bg:rgba(98,211,145,.14);--no:#ff8f7f;--no-bg:rgba(255,143,127,.13);--tip-bg:rgba(226,185,62,.12);--tip-line:#a88a2e;
+    --icon-line:rgba(236,241,250,.55);
+    --g-cereais:#e3a940;--g-horticolas:#55b563;--g-fruta:#f06e50;--g-laticinios:#5d9ee6;--g-proteina:#cf6597;--g-leguminosas:#ad8a58;--g-gorduras:#ecc83c;--g-agua:#5fcbe3;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0f1729;--grid:rgba(120,165,230,.07);--surface:#17213a;--surface-2:#1f2b48;--ink:#ecf1fa;--ink-soft:#a6b2cc;--line:#2d3a5a;
+  --bot:#4cc47f;--btn-bg:#4cc47f;--btn-fg:#0a1b11;--user-bg:#24406b;--focus:#7db7f2;
+  --ok:#62d391;--ok-bg:rgba(98,211,145,.14);--no:#ff8f7f;--no-bg:rgba(255,143,127,.13);--tip-bg:rgba(226,185,62,.12);--tip-line:#a88a2e;
+  --icon-line:rgba(236,241,250,.55);
+  --g-cereais:#e3a940;--g-horticolas:#55b563;--g-fruta:#f06e50;--g-laticinios:#5d9ee6;--g-proteina:#cf6597;--g-leguminosas:#ad8a58;--g-gorduras:#ecc83c;--g-agua:#5fcbe3;
+  color-scheme:dark;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{font-size:16px}
+html.big{font-size:19px}
+body{
+  background-color:var(--paper);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:26px 26px;
+  color:var(--ink);font-family:var(--f-body);font-size:1.0625rem;line-height:1.55;
+}
+button{font:inherit;color:inherit;cursor:pointer}
+button:disabled{cursor:not-allowed}
+:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+h1:focus{outline:none}
+h1,h2,h3{font-family:var(--f-display);font-weight:800;line-height:1.15;text-wrap:balance;margin:0}
+p{margin:0}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+.app{max-width:1040px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:14px 48px}
+
+/* Cabeçalho */
+.top{display:flex;align-items:center;gap:12px 16px;flex-wrap:wrap;padding-bottom:14px;margin-bottom:22px;border-bottom:2px dashed var(--line)}
+.brand{display:flex;align-items:center;gap:10px;background:none;border:0;padding:4px;border-radius:14px;text-align:left}
+.brand svg{width:46px;height:46px;flex:none;display:block}
+.brand b{display:block;font-family:var(--f-display);font-size:1.5rem;line-height:1}
+.brand small{display:block;color:var(--ink-soft);font-size:.85rem;margin-top:3px}
+.pips{display:flex;gap:6px;margin-left:auto}
+.pip{width:38px;height:38px;border-radius:50%;border:2px solid var(--line);background:var(--surface);font-family:var(--f-display);font-weight:800;display:grid;place-items:center;font-size:1rem;padding:0}
+.pip svg{width:18px;height:18px}
+.pip.done{background:var(--btn-bg);border-color:var(--btn-bg);color:var(--btn-fg)}
+.pip.cur{border-color:var(--ink);box-shadow:0 0 0 3px var(--surface-2)}
+.aa{height:38px;min-width:44px;padding:0 10px;border-radius:12px;border:2px solid var(--line);background:var(--surface);font-family:var(--f-display);font-weight:800}
+.aa[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+
+/* Botões comuns */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:10px 22px;border-radius:999px;border:2px solid var(--btn-bg);background:var(--btn-bg);color:var(--btn-fg);font-family:var(--f-display);font-weight:800;font-size:1.05rem;line-height:1.2;transition:transform .12s,filter .12s}
+.btn:hover:not(:disabled){filter:brightness(1.07);transform:translateY(-1px)}
+.btn:disabled{opacity:.45}
+.btn svg{width:20px;height:20px;flex:none}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn.small{min-height:40px;padding:6px 16px;font-size:.95rem}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.link{align-self:flex-start;background:none;border:0;padding:4px 0;text-decoration:underline;text-underline-offset:3px;color:var(--ink-soft);font-weight:700}
+.link.armed{color:var(--no)}
+.say{flex:none;width:40px;height:40px;border-radius:50%;border:2px solid var(--line);background:var(--surface);display:grid;place-items:center;color:var(--ink-soft);padding:0}
+.say svg{width:20px;height:20px}
+.say:hover{color:var(--ink);border-color:var(--ink-soft)}
+
+/* Início */
+.hero{display:grid;grid-template-columns:auto minmax(0,1fr);gap:20px;align-items:center;margin-bottom:28px}
+.hero-bot svg{width:clamp(84px,16vw,132px);height:auto;display:block;animation:bob 3.2s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-5px)}}
+.speech{position:relative;background:var(--surface);border:2px solid var(--line);border-radius:22px;padding:18px 20px;font-size:1.2rem;display:flex;gap:12px;align-items:flex-start}
+.speech::before{content:"";position:absolute;left:-11px;top:50%;width:18px;height:18px;background:var(--surface);border-left:2px solid var(--line);border-bottom:2px solid var(--line);transform:translateY(-50%) rotate(45deg)}
+.speech p{flex:1;min-width:0}
+.tiles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+@media (max-width:620px){.tiles{grid-template-columns:minmax(0,1fr)}.speech{font-size:1.05rem}}
+.tile{display:grid;grid-template-columns:auto minmax(0,1fr);grid-template-areas:"icon text" "icon stat";gap:4px 14px;align-items:start;text-align:left;background:var(--surface);border:2px solid var(--line);border-radius:20px;padding:18px;transition:transform .15s,border-color .15s}
+.tile:hover{transform:translateY(-2px);border-color:var(--t)}
+.tile.next{border-color:var(--t);box-shadow:0 5px 0 0 var(--t)}
+.ticon{grid-area:icon;width:56px;height:56px;border-radius:16px;display:grid;place-items:center;background:color-mix(in srgb,var(--t) 16%,var(--surface));color:var(--t)}
+.ticon svg{width:30px;height:30px}
+.ttext{grid-area:text;display:flex;flex-direction:column;gap:2px;min-width:0}
+.ttext small{font-size:.76rem;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-soft);font-weight:700}
+.ttext b{font-family:var(--f-display);font-size:1.35rem;line-height:1.15}
+.ttext span{color:var(--ink-soft)}
+.tstat{grid-area:stat;justify-self:start;display:inline-flex;align-items:center;gap:6px;font-weight:700;font-size:.9rem;padding:4px 12px;border-radius:999px;background:var(--surface-2);color:var(--ink-soft);margin-top:8px}
+.tile.done .tstat{background:var(--ok-bg);color:var(--ok)}
+.tile.next .tstat{background:var(--btn-bg);color:var(--btn-fg)}
+.tstat svg{width:16px;height:16px}
+.foot{margin-top:28px;padding:16px 18px;border-radius:18px;background:var(--tip-bg);border:2px dashed var(--tip-line);display:flex;flex-direction:column;gap:10px;font-size:.95rem;max-width:80ch}
+
+/* Cabeçalho das etapas */
+.vhead{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;margin-bottom:18px}
+.back{display:inline-flex;align-items:center;gap:6px;border:2px solid var(--line);background:var(--surface);border-radius:999px;padding:6px 14px;font-weight:700;min-height:40px}
+.back svg{width:18px;height:18px}
+.kicker{display:block;font-size:.8rem;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-soft);font-weight:700}
+.vhead h1{font-size:clamp(1.6rem,4vw,2.2rem)}
+.lede{max-width:65ch;color:var(--ink-soft);margin:-4px 0 18px}
+
+/* Quiz */
+.qcard{background:var(--surface);border:2px solid var(--line);border-radius:24px;padding:clamp(18px,4vw,32px);max-width:760px}
+.qmeta{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-weight:700;color:var(--ink-soft);font-size:.92rem;font-variant-numeric:tabular-nums}
+.tag{display:inline-block;padding:2px 10px;border-radius:999px;background:var(--surface-2);font-size:.78rem;letter-spacing:.06em;text-transform:uppercase}
+.bar{height:10px;border-radius:999px;background:var(--surface-2);margin:10px 0 20px;overflow:hidden}
+.bar span{display:block;height:100%;background:var(--btn-bg);border-radius:inherit;transition:width .4s}
+.qrow{display:flex;gap:12px;align-items:flex-start;margin-bottom:18px}
+.qrow h2{flex:1;min-width:0;font-size:clamp(1.3rem,3vw,1.6rem)}
+.hint{color:var(--ink-soft);margin:-8px 0 14px}
+.opts{display:grid;gap:10px}
+.opts.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media (max-width:560px){.opts.two{grid-template-columns:minmax(0,1fr)}}
+.opt{display:flex;align-items:center;gap:12px;text-align:left;padding:12px 14px;min-height:56px;border-radius:16px;border:2px solid var(--line);background:var(--surface);font-size:1.1rem;line-height:1.35;transition:border-color .15s,background .15s}
+.opt:hover:not(:disabled){border-color:var(--ink-soft)}
+.opt:disabled{cursor:default}
+.opt .key{flex:none;width:32px;height:32px;border-radius:10px;display:grid;place-items:center;background:var(--surface-2);font-family:var(--f-display);font-weight:800}
+.opt[aria-pressed="true"]{border-color:var(--ink);background:var(--surface-2)}
+.opt.check .cbox{flex:none;width:28px;height:28px;border-radius:8px;border:2px solid var(--line);display:grid;place-items:center}
+.opt.check .cbox svg{width:16px;height:16px;opacity:0}
+.opt.check[aria-pressed="true"] .cbox{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.opt.check[aria-pressed="true"] .cbox svg{opacity:1}
+.opt.right{border-color:var(--ok);background:var(--ok-bg)}
+.opt.right .key,.opt.right .cbox{background:var(--ok);border-color:var(--ok);color:var(--surface)}
+.opt.wrong{border-color:var(--no);background:var(--no-bg)}
+.opt.wrong .key,.opt.wrong .cbox{background:var(--no);border-color:var(--no);color:var(--surface)}
+.opt.missed{border-style:dashed;border-color:var(--ok)}
+.opt.dim{opacity:.55}
+.fb{margin-top:16px;padding:14px 16px;border-radius:16px}
+.fb.good{background:var(--ok-bg)}
+.fb.bad{background:var(--no-bg)}
+.fb b{font-family:var(--f-display)}
+.score{display:flex;align-items:baseline;gap:10px;font-family:var(--f-display);margin-bottom:4px}
+.score b{font-size:clamp(3.4rem,10vw,5rem);line-height:1;font-weight:800;color:var(--bot);font-variant-numeric:tabular-nums}
+.score span{font-size:1.25rem;color:var(--ink-soft);font-weight:600}
+.mt{margin-top:8px}
+.concepts{list-style:none;padding:0;margin:18px 0 0;display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:8px}
+.concepts li{display:flex;gap:8px;align-items:center;padding:8px 12px;border-radius:12px;background:var(--surface-2);font-weight:700}
+.concepts li svg{width:18px;height:18px;flex:none}
+.concepts .ok svg{color:var(--ok)}
+.concepts .no svg{color:var(--no)}
+
+/* Pergunta ao NutriBot */
+.meter{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:16px;padding:10px 14px;background:var(--surface);border:2px solid var(--line);border-radius:16px}
+.dots{display:flex;gap:6px}
+.dots span{width:14px;height:14px;border-radius:50%;border:2px solid var(--bot)}
+.dots span.on{background:var(--bot)}
+.meter p{font-weight:700;flex:1;min-width:14ch}
+.chatwrap{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:18px;align-items:start}
+@media (max-width:820px){.chatwrap{grid-template-columns:minmax(0,1fr)}}
+.chat{background:var(--surface);border:2px solid var(--line);border-radius:24px;display:flex;flex-direction:column;height:min(70vh,640px);min-height:380px;overflow:hidden}
+.log{flex:1;overflow-y:auto;padding:18px;display:flex;flex-direction:column;gap:12px}
+.msg{max-width:90%}
+.msg.user{align-self:flex-end;background:var(--user-bg);padding:10px 14px;border-radius:18px 18px 6px 18px;font-weight:700;overflow-wrap:anywhere}
+.msg.bot{display:flex;gap:8px;align-items:flex-start}
+.ava{flex:none}
+.ava svg{width:32px;height:32px;display:block}
+.bubble{background:var(--surface-2);padding:12px 14px;border-radius:6px 18px 18px 18px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.btag{font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;font-weight:700;color:var(--bot)}
+.bubble .lead{font-size:.92rem;color:var(--ink-soft)}
+.bubble .say{width:34px;height:34px;align-self:flex-end}
+.bubble .say svg{width:17px;height:17px}
+.typing{flex-direction:row;gap:5px;padding:16px 16px}
+.typing span{width:8px;height:8px;border-radius:50%;background:var(--ink-soft);animation:blink 1s infinite}
+.typing span:nth-child(2){animation-delay:.15s}
+.typing span:nth-child(3){animation-delay:.3s}
+@keyframes blink{0%,100%{opacity:.25}50%{opacity:1}}
+.composer{display:flex;gap:8px;padding:12px;border-top:2px solid var(--line);background:var(--surface)}
+.composer input{flex:1;min-width:0;min-height:44px;padding:8px 16px;border-radius:999px;border:2px solid var(--line);background:var(--paper);color:var(--ink);font:inherit}
+.picker{background:var(--surface);border:2px solid var(--line);border-radius:24px;padding:16px}
+.picker h2{font-size:1.2rem;margin-bottom:10px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{padding:5px 12px;min-height:36px;border-radius:999px;border:2px solid var(--line);background:var(--surface);font-size:.9rem;font-weight:700;line-height:1.25}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.qlist{display:flex;flex-direction:column;gap:8px;margin-top:12px;max-height:440px;overflow-y:auto;padding-right:4px}
+@media (max-width:820px){.qlist{max-height:none;overflow:visible}}
+.qbtn{display:flex;gap:10px;align-items:flex-start;text-align:left;padding:10px 12px;border-radius:14px;border:2px solid var(--line);background:var(--surface);font-weight:700;line-height:1.35}
+.qbtn:hover{border-color:var(--bot)}
+.qbtn .mk{flex:none;width:22px;height:22px;border-radius:50%;border:2px solid var(--line);display:grid;place-items:center;margin-top:1px}
+.qbtn.seen .mk{background:var(--bot);border-color:var(--bot);color:var(--surface)}
+.qbtn .mk svg{width:13px;height:13px}
+.note{font-size:.88rem;color:var(--ink-soft);margin-top:12px}
+
+/* Constrói o teu lanche */
+.lanche{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:18px;align-items:start}
+@media (max-width:860px){.lanche{grid-template-columns:minmax(0,1fr)}}
+.box{background:var(--surface);border:2px solid var(--line);border-radius:24px;padding:18px}
+.box h2{font-size:1.25rem;display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:4px 10px;margin-bottom:12px}
+.count{font-family:var(--f-body);font-size:.95rem;color:var(--ink-soft);font-weight:700;font-variant-numeric:tabular-nums}
+.slots{display:flex;flex-wrap:wrap;gap:8px}
+.slot{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:50px;min-width:50px;padding:4px 6px;border-radius:14px;border:2px dashed var(--line);color:var(--ink-soft);font-family:var(--f-display);font-size:1.3rem}
+.slot.full{border-style:solid;background:var(--surface-2);font-family:var(--f-body);font-size:1rem}
+.slot .fi{width:34px;height:34px;flex:none}
+.slot .nm{font-weight:700;font-size:.9rem;color:var(--ink)}
+.rm{width:28px;height:28px;border-radius:50%;border:0;background:transparent;display:grid;place-items:center;color:var(--ink-soft);padding:0}
+.rm:hover{background:var(--no-bg);color:var(--no)}
+.rm svg{width:14px;height:14px}
+.lnote{margin-top:10px;font-weight:700;color:var(--no)}
+.wheelrow{display:flex;flex-wrap:wrap;gap:16px;align-items:center;margin:18px 0 6px}
+.wheel{width:168px;max-width:100%;flex:none}
+.wheel svg{width:100%;height:auto;display:block}
+.seg{opacity:.16;transition:opacity .35s}
+.seg.on{opacity:1}
+.legend{list-style:none;padding:0;margin:0;display:grid;gap:3px;flex:1;min-width:180px;font-size:.92rem}
+.legend li{display:flex;align-items:center;gap:8px;color:var(--ink-soft)}
+.legend li.on{color:var(--ink);font-weight:700}
+.sw{width:12px;height:12px;border-radius:4px;flex:none;opacity:.35}
+.legend li.on .sw{opacity:1}
+.legend .pct{margin-left:auto;font-variant-numeric:tabular-nums;font-weight:400;color:var(--ink-soft)}
+.checks{list-style:none;padding:0;margin:14px 0 0;display:grid;gap:8px}
+.checks li{display:flex;gap:10px;align-items:flex-start;padding:10px 12px;border-radius:14px;background:var(--surface-2)}
+.checks .ck{flex:none;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;border:2px solid var(--line);margin-top:1px}
+.checks .ck svg{width:13px;height:13px}
+.checks li.ok{background:var(--ok-bg)}
+.checks li.ok .ck{background:var(--ok);border-color:var(--ok);color:var(--surface)}
+.checks li.warn{background:var(--no-bg)}
+.checks li.warn .ck{background:var(--no);border-color:var(--no);color:var(--surface)}
+.checks small{display:block;color:var(--ink-soft);font-size:.88rem;margin-top:1px}
+.shelf{display:grid;grid-template-columns:repeat(auto-fill,minmax(100px,1fr));gap:10px}
+.food{position:relative;display:flex;flex-direction:column;align-items:center;gap:6px;padding:12px 6px 10px;border-radius:16px;border:2px solid var(--line);background:var(--surface);font-weight:700;font-size:.9rem;line-height:1.2;text-align:center;transition:transform .12s,border-color .12s}
+.food .fi{width:52px;height:52px}
+.food:hover{transform:translateY(-2px);border-color:var(--ink-soft)}
+.food.sel{border-color:var(--btn-bg);background:var(--ok-bg)}
+.tick{position:absolute;top:6px;right:6px;width:22px;height:22px;border-radius:50%;background:var(--btn-bg);color:var(--btn-fg);display:none;place-items:center}
+.food.sel .tick{display:grid}
+.tick svg{width:13px;height:13px}
+.fi .ln{stroke:var(--icon-line);stroke-width:1.6;stroke-linejoin:round;stroke-linecap:round}
+.just{margin-top:18px}
+.just .lede{margin:0 0 14px}
+.jrows{display:grid;gap:10px}
+.jrow{display:grid;grid-template-columns:minmax(150px,210px) minmax(0,1fr);gap:8px 14px;align-items:start;padding:12px;border-radius:16px;background:var(--surface-2)}
+.jfood{display:flex;align-items:center;gap:8px;font-weight:700}
+.jfood .fi{width:38px;height:38px;flex:none}
+.jopts{display:flex;flex-wrap:wrap;gap:6px}
+.jopts .chip.right{background:var(--ok);border-color:var(--ok);color:var(--surface)}
+.jopts .chip.wrong{background:var(--no-bg);border-color:var(--no);color:var(--ink)}
+.jfb{grid-column:2;font-size:.94rem;display:flex;gap:6px;align-items:flex-start}
+.jfb svg{width:16px;height:16px;flex:none;margin-top:3px}
+.jfb.good{color:var(--ok)}
+.jfb.bad{color:var(--no)}
+@media (max-width:620px){.jrow{grid-template-columns:minmax(0,1fr)}.jfb{grid-column:1}}
+.jfoot{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;margin-top:16px}
+.win{margin-top:16px;padding:16px;border-radius:18px;background:var(--ok-bg);display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.win > svg{width:56px;height:56px;flex:none}
+.win > div{flex:1;min-width:16ch}
+.win b{font-family:var(--f-display);font-size:1.2rem}
+
+/* Avaliação final */
+.faces{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:14px 0 26px}
+.face{display:flex;flex-direction:column;align-items:center;gap:6px;padding:12px 6px;border-radius:16px;border:2px solid var(--line);background:var(--surface);font-weight:700;font-size:.95rem;line-height:1.25;text-align:center}
+.face svg{width:52px;height:52px}
+.face[aria-pressed="true"]{border-color:var(--ink);background:var(--surface-2)}
+.mt-s{margin-top:14px}
+.results{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:18px;align-items:start}
+@media (max-width:820px){.results{grid-template-columns:minmax(0,1fr)}}
+.cmp{display:grid;gap:8px;margin-top:16px}
+.cmp .row{display:grid;grid-template-columns:7em minmax(0,1fr) 2.6em;align-items:center;gap:10px;font-weight:700;font-variant-numeric:tabular-nums}
+.cmp .track{height:14px;border-radius:999px;background:var(--surface-2);overflow:hidden}
+.cmp .track span{display:block;height:100%;border-radius:inherit;background:var(--ink-soft)}
+.cmp .row.now .track span{background:var(--bot)}
+.pledge{margin-top:18px;padding:14px 16px;border-radius:16px;background:var(--tip-bg);border:2px dashed var(--tip-line)}
+.objs{list-style:none;counter-reset:o;padding:0;margin:0;display:grid}
+.objs li{display:grid;grid-template-columns:30px minmax(0,1fr) auto;gap:10px;align-items:start;padding:12px 0;border-bottom:1px solid var(--line)}
+.objs li::before{counter-increment:o;content:counter(o);width:30px;height:30px;border-radius:50%;background:var(--surface-2);display:grid;place-items:center;font-family:var(--f-display);font-weight:800}
+.objs b{display:block;line-height:1.3}
+.objs small{color:var(--ink-soft);font-size:.9rem}
+.st{font-size:.82rem;font-weight:700;padding:3px 10px;border-radius:999px;white-space:nowrap;margin-top:2px}
+.st.ok{background:var(--ok-bg);color:var(--ok)}
+.st.no{background:var(--surface-2);color:var(--ink-soft)}
+
+@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="top">
+    <button class="brand" data-go="inicio" aria-label="NutriBot, voltar ao início"><span id="brandbot"></span><span><b>NutriBot</b><small>O teu amigo da alimentação saudável</small></span></button>
+    <nav class="pips" id="pips" aria-label="Etapas da atividade"></nav>
+    <button class="aa" id="aa" aria-pressed="false" title="Letra maior">Aa</button>
+  </header>
+  <main id="view"></main>
+</div>
+
+<script>
+(function(){
+const KEY='nutribot-v1';
+const view=document.getElementById('view');
+const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+const reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+const canSpeak=('speechSynthesis' in window)&&typeof SpeechSynthesisUtterance!=='undefined';
+
+/* ---------- Ícones ---------- */
+const ROBOT='<svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 15V8" stroke="#1d6b3f" stroke-width="3" stroke-linecap="round"/><path d="M32 8c1-4 5-6 9-5-1 4-5 6-9 5z" fill="#6cc46a"/><rect x="5" y="27" width="6" height="12" rx="3" fill="#1d6b3f"/><rect x="53" y="27" width="6" height="12" rx="3" fill="#1d6b3f"/><rect x="9" y="14" width="46" height="38" rx="15" fill="#2e9d5b"/><rect x="15" y="21" width="34" height="23" rx="10" fill="#eafbf0"/><circle cx="25" cy="31" r="3.6" fill="#15301f"/><circle cx="39" cy="31" r="3.6" fill="#15301f"/><circle cx="26.2" cy="29.8" r="1.1" fill="#fff"/><circle cx="40.2" cy="29.8" r="1.1" fill="#fff"/><path d="M27 37.5c3 2.6 7 2.6 10 0" stroke="#15301f" stroke-width="2.4" fill="none" stroke-linecap="round"/><circle cx="19.5" cy="37" r="2.3" fill="#f6a48f" opacity=".85"/><circle cx="44.5" cy="37" r="2.3" fill="#f6a48f" opacity=".85"/></svg>';
+const ICON={
+  check:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+  x:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10M17 7L7 17" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>',
+  arrow:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+  back:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H6M11 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+  speaker:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor"/><path d="M16 9a4 4 0 0 1 0 6M18.5 6.5a7.5 7.5 0 0 1 0 11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>'
+};
+const T='viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"';
+const TI={
+  quiz:`<svg ${T}><rect x="5" y="4" width="14" height="17" rx="2.5"/><path d="M9 4V2.8h6V4"/><path d="M8.5 10.5l1.5 1.5 3-3M8.5 16h7"/></svg>`,
+  chat:`<svg ${T}><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3h11A2.5 2.5 0 0 1 20 5.5v8a2.5 2.5 0 0 1-2.5 2.5H10l-5 4v-4.2A2.5 2.5 0 0 1 4 13.5z"/><path d="M9 8.5h6M9 12h4"/></svg>`,
+  box:`<svg ${T}><rect x="3" y="9" width="18" height="11" rx="2.5"/><path d="M8.5 9V6.5a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2V9"/><path d="M3 13.5h18M11 13.5v2h2v-2"/></svg>`,
+  medal:`<svg ${T}><circle cx="12" cy="14.5" r="5.5"/><path d="M8.5 3l2.5 6.5M15.5 3L13 9.5"/><path d="M12 12.3l.8 1.6 1.7.2-1.3 1.2.3 1.7-1.5-.8-1.5.8.3-1.7-1.3-1.2 1.7-.2z"/></svg>`
+};
+const bear=(x,y,c)=>`<g class="ln" fill="${c}" transform="translate(${x} ${y})"><circle cx="-3.6" cy="-11" r="2.3"/><circle cx="3.6" cy="-11" r="2.3"/><circle cx="0" cy="-7" r="4.8"/><rect x="-5.6" y="-3.5" width="11.2" height="13" rx="5.2"/></g>`;
+const FI={
+  pao:'<path class="ln" fill="#c98b4a" d="M7 25c0-7.5 7.6-13 17-13s17 5.5 17 13v10a3 3 0 0 1-3 3H10a3 3 0 0 1-3-3z"/><path d="M16 19.5l3.5 5M23.5 17.5l3.5 5M31 19l3.5 5" stroke="#f1cf98" stroke-width="2.4" stroke-linecap="round" fill="none"/>',
+  aveia:'<path class="ln" fill="#7fb0dd" d="M6 24h36c0 9-8 16-18 16S6 33 6 24z"/><ellipse class="ln" cx="24" cy="24" rx="18" ry="4.5" fill="#ecd7a6"/><g fill="#c4a062"><ellipse cx="16" cy="23.6" rx="2.2" ry="1"/><ellipse cx="23" cy="22.4" rx="2.2" ry="1"/><ellipse cx="30.5" cy="24.4" rx="2.2" ry="1"/><ellipse cx="21" cy="25.6" rx="2.2" ry="1"/><ellipse cx="27" cy="23" rx="2.2" ry="1"/></g>',
+  cenoura:'<g class="ln"><rect x="9" y="11" width="7" height="27" rx="3.5" fill="#ee8628" transform="rotate(-14 12.5 24.5)"/><rect x="20.5" y="8" width="7" height="30" rx="3.5" fill="#f59a3c"/><rect x="32" y="11" width="7" height="27" rx="3.5" fill="#ee8628" transform="rotate(14 35.5 24.5)"/></g>',
+  tomate:'<g class="ln" fill="#e2453a"><circle cx="15" cy="30" r="8"/><circle cx="32" cy="31" r="8"/><circle cx="24" cy="18" r="7.5"/></g><g fill="#3f9a4a"><ellipse cx="15" cy="22.6" rx="3" ry="1.4"/><ellipse cx="32" cy="23.6" rx="3" ry="1.4"/><ellipse cx="24" cy="11.2" rx="3" ry="1.4"/></g>',
+  maca:'<path class="ln" fill="#e2453a" d="M24 16c-3-3-12.5-3.5-14.5 5-2 9 4 19 10 19 2 0 3-1 4.5-1s2.5 1 4.5 1c6 0 12-10 10-19-2-8.5-11.5-8-14.5-5z"/><path d="M24 16c0-4 1-7 3-9" stroke="#6b4a2b" stroke-width="2.4" fill="none" stroke-linecap="round"/><path class="ln" fill="#4caf50" d="M27 11c3-4 8-4.5 10.5-3.2-2 4-6.5 5.2-10.5 3.2z"/><path d="M15 22c1-2 3-3.5 5-3.8" stroke="#f08a7e" stroke-width="2" fill="none" stroke-linecap="round"/>',
+  banana:'<path class="ln" fill="#f2cd3c" d="M10 13c1.5 15 12 23 28.5 21.5 2.2-.2 2.8-2.6.8-3.3-11.5-.8-19-7.6-22.3-19.2-1-3.4-7.5-2.6-7 1z"/><path d="M10.5 13.5L8.5 9" stroke="#6b4a2b" stroke-width="2.6" stroke-linecap="round"/>',
+  tangerina:'<circle class="ln" cx="24" cy="27" r="13" fill="#f39a2b"/><g fill="#dc7d16"><circle cx="19" cy="24" r="1.1"/><circle cx="28.5" cy="30" r="1.1"/><circle cx="22" cy="33" r="1.1"/><circle cx="30" cy="22.5" r="1.1"/></g><path class="ln" fill="#4caf50" d="M24 14c1.2-3.4 4.4-5.4 8.5-5.2-1.2 4-4.5 6-8.5 5.2z"/>',
+  iogurte:'<path class="ln" fill="#f7f4ed" d="M12 16h24l-3 21.5a3 3 0 0 1-3 2.5H18a3 3 0 0 1-3-2.5z"/><path d="M13.6 26h20.8" stroke="#93bfe9" stroke-width="3.5"/><rect class="ln" x="10" y="11" width="28" height="6" rx="2" fill="#3f86d4"/>',
+  queijo:'<path class="ln" fill="#f6ebc8" d="M8 21v11c0 4 7.2 7 16 7s16-3 16-7V21z"/><ellipse class="ln" cx="24" cy="21" rx="16" ry="6" fill="#fffaf0"/>',
+  leite:'<path class="ln" fill="#ffffff" d="M14 18l4-7h12l4 7v20a2 2 0 0 1-2 2H16a2 2 0 0 1-2-2z"/><rect x="15" y="24" width="18" height="9" fill="#3f86d4"/><path class="ln" fill="none" d="M14 18h20"/><path class="ln" fill="#3f86d4" d="M21 11V7.5h6V11"/>',
+  ovo:'<ellipse class="ln" cx="24" cy="25" rx="13" ry="15.5" fill="#fbf7ec"/><circle cx="24" cy="28" r="6.8" fill="#f2b21b"/>',
+  humus:'<path class="ln" fill="#cf6b48" d="M7 24h34c0 8.5-7.6 15-17 15S7 32.5 7 24z"/><ellipse class="ln" cx="24" cy="24" rx="17" ry="5" fill="#e9d196"/><path d="M16 24c3 1.8 13 1.8 16 0" stroke="#c9a65e" stroke-width="2" fill="none" stroke-linecap="round"/><g fill="#b98e45"><circle cx="20" cy="22.2" r="1.5"/><circle cx="27.5" cy="22.6" r="1.5"/><circle cx="24" cy="21.4" r="1.2"/></g>',
+  manteiga:'<rect class="ln" x="6" y="32" width="36" height="6" rx="3" fill="#c7d3e6"/><rect class="ln" x="12" y="18" width="24" height="14" rx="2" fill="#f6dc76"/><path d="M13 22.5h22" stroke="#e5c443" stroke-width="2"/>',
+  agua:'<path fill="#e7f6fb" d="M19 10h10l3 6v20a4 4 0 0 1-4 4h-8a4 4 0 0 1-4-4V16z"/><path fill="#83d3ea" d="M16 22h16v14a4 4 0 0 1-4 4h-8a4 4 0 0 1-4-4z"/><path class="ln" fill="none" d="M19 10h10l3 6v20a4 4 0 0 1-4 4h-8a4 4 0 0 1-4-4V16z"/><rect class="ln" x="19.5" y="5" width="9" height="5" rx="1.5" fill="#2f7fd0"/>',
+  bolachas:'<rect class="ln" x="8" y="13" width="32" height="8" rx="4" fill="#5b3a29"/><rect class="ln" x="9.5" y="21" width="29" height="5" fill="#f4e7d2"/><rect class="ln" x="8" y="26" width="32" height="8" rx="4" fill="#5b3a29"/>',
+  batatas:'<path class="ln" fill="#e9476a" d="M11 8h26l-1.6 32H12.6z"/><path d="M11.6 13h24.8" stroke="#bf3253" stroke-width="2"/><ellipse class="ln" cx="24" cy="26" rx="7.5" ry="5.5" fill="#f5cf55" transform="rotate(-18 24 26)"/>',
+  refri:'<rect class="ln" x="14" y="8" width="20" height="32" rx="4" fill="#d6313d"/><rect x="15" y="19" width="18" height="9" fill="#f5f1ea"/><path d="M17 8.5h14" stroke="#9aa3b2" stroke-width="3" stroke-linecap="round"/><g fill="#ffffff" opacity=".55"><circle cx="20" cy="34" r="1.3"/><circle cx="27" cy="13.5" r="1.1"/></g>',
+  sumo:'<path d="M27 12l3-7 5 1" stroke="#3f86d4" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/><rect class="ln" x="13" y="12" width="21" height="28" rx="2.5" fill="#f39a2b"/><circle cx="23.5" cy="27" r="5.5" fill="#ffd45e"/><path d="M23.5 21.5v11M18 27h11" stroke="#f39a2b" stroke-width="1.4"/>',
+  bolo:'<path class="ln" fill="#7a4a30" d="M7 38V28L39 18v20z"/><path fill="#f2d9c4" d="M7.9 28.6L38.1 19.2v5L7.9 33.6z"/><circle class="ln" cx="34" cy="14.5" r="3.4" fill="#e2453a"/>',
+  gomas:bear(13,29,'#e2453a')+bear(35,29,'#f2cd3c')+bear(24,25,'#4caf50')
+};
+const fi=id=>`<svg class="fi" viewBox="0 0 48 48" aria-hidden="true">${FI[id]}</svg>`;
+const face=k=>{const m=['M16 28q8 8 16 0','M17 30h14','M16 32q8-6 16 0'][k];return `<svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="20" style="fill:var(--g-gorduras)"/><circle cx="17.5" cy="20" r="2.6" fill="#2a2412"/><circle cx="30.5" cy="20" r="2.6" fill="#2a2412"/><path d="${m}" fill="none" stroke="#2a2412" stroke-width="2.8" stroke-linecap="round"/></svg>`;};
+
+/* ---------- Conteúdos (escritos e validados pelo grupo) ---------- */
+const GROUPS={
+  cereais:{name:'Cereais, derivados e tubérculos',short:'Cereais e tubérculos',pct:28},
+  horticolas:{name:'Hortícolas',short:'Hortícolas',pct:23},
+  fruta:{name:'Fruta',short:'Fruta',pct:20},
+  laticinios:{name:'Laticínios',short:'Laticínios',pct:18},
+  proteina:{name:'Carne, pescado e ovos',short:'Carne, pescado e ovos',pct:5},
+  leguminosas:{name:'Leguminosas',short:'Leguminosas',pct:4},
+  gorduras:{name:'Gorduras e óleos',short:'Gorduras e óleos',pct:2}
+};
+const ORDER=Object.keys(GROUPS);
+
+const CATS={roda:'Roda dos Alimentos',fruta:'Fruta e legumes',agua:'Água e bebidas',refeicoes:'Refeições',crescer:'Crescer forte',moderar:'Só de vez em quando',detetive:'Detetive dos alimentos'};
+const QA=[
+  {id:1,cat:'roda',q:'O que é a Roda dos Alimentos?',a:'É um guia em forma de círculo que nos mostra como comer bem. Está dividida em 7 grupos de alimentos: os grupos maiores são os que devemos comer em maior quantidade e os mais pequenos os que devemos comer em menor quantidade. A água está no centro porque faz parte de todos os grupos e devemos bebê-la todos os dias.',k:['roda','circulo','guia']},
+  {id:2,cat:'roda',q:'Quais são os grupos da Roda dos Alimentos?',a:'São 7: cereais, derivados e tubérculos (pão, arroz, massa, batata); hortícolas; fruta; laticínios; carne, pescado e ovos; leguminosas; e gorduras e óleos. Cada grupo dá ao corpo coisas diferentes, por isso precisamos de todos.',k:['grupo','sete','7 grupos']},
+  {id:3,cat:'roda',q:'O que é uma alimentação completa, equilibrada e variada?',a:'Completa: comer alimentos de todos os grupos todos os dias. Equilibrada: comer mais dos grupos maiores e menos dos grupos mais pequenos. Variada: ir trocando os alimentos dentro de cada grupo, por exemplo, maçã num dia e laranja no outro.',k:['complet','equilibr','variad','variedade']},
+  {id:4,cat:'fruta',q:'Porque devemos comer fruta?',a:'Porque a fruta fornece vitaminas, minerais, água e fibra. Comer frutas variadas, várias vezes ao dia, ajuda-nos a ter uma alimentação equilibrada!',k:['fruta$','frutas','fruto']},
+  {id:5,cat:'fruta',q:'Porque devemos comer sopa e legumes?',a:'Os hortícolas, como a cenoura, a couve ou o tomate, dão vitaminas, minerais e fibra. A fibra ajuda o intestino a funcionar bem e as vitaminas ajudam a proteger o corpo. Uma sopa de legumes ao almoço e ao jantar é uma ótima maneira de os comer!',k:['sopa','legume','hortic','vegeta','couve','cenoura','brocolo','salada','alface']},
+  {id:6,cat:'fruta',q:'É melhor comer a fruta inteira ou beber sumo?',a:'A fruta inteira é melhor! Tem toda a fibra, que nos deixa saciados durante mais tempo. No sumo, mesmo natural, perde-se parte da fibra e o açúcar fica mais concentrado. Os sumos de pacote, muitas vezes, ainda têm açúcar adicionado.',k:['sumo','inteira','natural']},
+  {id:7,cat:'fruta',q:'Porque devemos comer fruta da época?',a:'A fruta da época amadurece no tempo certo, por isso é mais saborosa e nutritiva. Costuma ser mais barata e vir de mais perto, o que também é bom para o ambiente. No outono, por exemplo, temos maçã, pera, uvas, romã e dióspiro.',k:['fruta da epoca','epoca','estacao','outono','inverno','verao','primavera']},
+  {id:8,cat:'agua',q:'Devemos beber água ou refrigerantes?',a:'Água! É a melhor bebida para matar a sede e não tem açúcar. Os refrigerantes têm muito açúcar (uma só lata pode ter várias colheres de chá), fazem mal aos dentes e não fazem parte da Roda dos Alimentos.',k:['refrigerante','coca','gasosa','ice tea','refresco','agua ou']},
+  {id:9,cat:'agua',q:'Quanta água devemos beber por dia?',a:'Cerca de 6 a 8 copos por dia, bebidos aos poucos ao longo do dia. Quando está calor ou fazemos desporto, precisamos de mais. Não esperes pela sede: ter sede já é um sinal de que o corpo precisa de água.',k:['quanta agua','copos','litro','sede','hidrat','beber agua','agua$']},
+  {id:10,cat:'refeicoes',q:'Porque é importante tomar o pequeno-almoço?',a:'Durante a noite passamos muitas horas sem comer. O pequeno-almoço dá energia ao corpo e ao cérebro para começar o dia e ajuda-nos a estar atentos nas aulas. Um bom exemplo: leite ou iogurte, pão e uma peça de fruta.',k:['pequeno almoco','manha','acordar']},
+  {id:11,cat:'refeicoes',q:'Quantas refeições devemos fazer por dia?',a:'Normalmente 5 ou 6: pequeno-almoço, meio da manhã, almoço, lanche, jantar e, às vezes, uma ceia leve. O ideal é não passar mais de 3 horas e meia sem comer, para termos sempre energia.',k:['refeic','quantas vezes','horas sem','ceia','jantar','almoco$']},
+  {id:12,cat:'refeicoes',q:'O que é um lanche saudável?',a:'É um lanche que junta alimentos de grupos diferentes. Por exemplo: pão com queijo, uma peça de fruta e água. Ou um iogurte natural com fruta. Bolachas recheadas, batatas fritas de pacote e refrigerantes ficam para ocasiões especiais.',k:['lanche','lancheira','merenda','intervalo','recreio']},
+  {id:13,cat:'crescer',q:'Para que servem o leite e o iogurte?',a:'Os laticínios, como o leite, o iogurte e o queijo, têm cálcio e proteínas. O cálcio ajuda a construir ossos e dentes fortes, o que é muito importante enquanto estás a crescer.',k:['leite','iogurte','queijo','calcio','osso','laticinio','lacticinio']},
+  {id:14,cat:'crescer',q:'O que são leguminosas?',a:'São o feijão, o grão-de-bico, as lentilhas, as ervilhas e as favas. Dão proteína, fibra e ferro, e podem substituir a carne ou o peixe em algumas refeições. Também ficam ótimas na sopa!',k:['leguminos','feijao','grao','lentilha','ervilha','fava']},
+  {id:15,cat:'crescer',q:'Porque devemos comer peixe?',a:'O peixe tem proteínas que ajudam a crescer e a formar músculos. Os peixes gordos, como a sardinha e a cavala, têm ómega-3, uma gordura boa para o cérebro e para o coração. Devemos ir alternando carne e peixe nas refeições.',k:['peixe','sardinha','pescado','omega','carne','atum','salmao','bacalhau','proteina']},
+  {id:16,cat:'moderar',q:'Podemos comer doces?',a:'Podemos, mas só de vez em quando e em pouca quantidade, por exemplo numa festa de anos. Os doces não fazem parte da Roda dos Alimentos e o açúcar em excesso faz mal aos dentes e à saúde. E depois, lava os dentes!',k:['doce','acucar','chocolate','goma','bolo','rebucado','gelado','bolacha']},
+  {id:17,cat:'moderar',q:'Porque não devemos comer muito sal?',a:'O sal em excesso pode fazer mal ao coração, sobretudo quando formos mais velhos. Há muito sal escondido em batatas fritas de pacote, salgados, enchidos e comida rápida. Para dar sabor, podemos usar ervas aromáticas, como a salsa, os coentros ou os orégãos.',k:['sal$','salgad','enchido','chourico','presunto','tremoco']},
+  {id:18,cat:'moderar',q:'A comida rápida (fast food) faz mal?',a:'Hambúrgueres, pizzas e batatas fritas costumam ter muita gordura, sal e açúcar, e pouca fibra e vitaminas. Comer de vez em quando não faz mal, mas não deve ser todos os dias. Em casa, podemos fazer versões mais saudáveis!',k:['fast food','fast','hamburguer','pizza','mcdonald','comida rapida','batatas fritas','nuggets','kebab']},
+  {id:19,cat:'detetive',q:'Como posso ler o rótulo de um alimento?',a:'Na lista de ingredientes, o primeiro ingrediente é o que existe em maior quantidade. Se o açúcar aparece entre os primeiros, aquele alimento tem muito açúcar. Atenção aos nomes escondidos do açúcar: xarope de glicose, frutose ou dextrose!',k:['rotulo','embalagem','ingrediente','etiqueta','ler$']},
+  {id:20,cat:'detetive',q:'Posso acreditar em tudo o que vejo na internet sobre comida?',a:'Não! Na internet há informação errada e anúncios que só querem vender. Confirma sempre com um adulto de confiança, como os teus pais, o professor ou um nutricionista. Até as respostas de aplicações podem ter erros, por isso pensa sempre de forma crítica.',k:['internet','youtube','tiktok','instagram','acreditar','verdade','redes sociais','inteligencia artificial','ia$','chatgpt','anuncio','publicidade','google']}
+];
+
+const QUIZ_I=[
+  {c:'Roda dos Alimentos',q:'Na Roda dos Alimentos, qual destes grupos devemos comer em MAIOR quantidade?',o:['Gorduras e óleos','Cereais, derivados e tubérculos (pão, arroz, massa, batata)','Carne, pescado e ovos','Leguminosas'],a:1,e:'Os cereais, derivados e tubérculos ocupam a maior parte da Roda (28%). Dão-nos energia para o dia.'},
+  {c:'Água',q:'Qual é a melhor bebida para matar a sede?',o:['Refrigerante','Sumo de pacote','Água','Leite com chocolate'],a:2,e:'A água hidrata o corpo e não tem açúcar. Por isso está no centro da Roda dos Alimentos.'},
+  {c:'Fruta e hortícolas',q:'Porque devemos comer fruta e legumes todos os dias?',o:['Porque dão vitaminas, minerais e fibra','Porque têm muita gordura','Porque só servem para enfeitar o prato','Porque têm muito sal'],a:0,e:'A fruta e os hortícolas dão vitaminas, minerais e fibra, que protegem o corpo e ajudam o intestino.'},
+  {c:'Refeições',q:'Qual destes é um bom pequeno-almoço?',o:['Bolachas recheadas e um refrigerante','Leite, pão com queijo e uma peça de fruta','Não comer nada até ao almoço','Só um sumo de pacote'],a:1,e:'Um bom pequeno-almoço junta vários grupos: laticínios, cereais e fruta. Dá energia para as aulas.'},
+  {c:'Açúcar',q:'Quando podemos comer doces?',o:['Todos os dias ao lanche','Em vez do almoço','Sempre que temos fome','Só de vez em quando, em pouca quantidade'],a:3,e:'Os doces não fazem parte da Roda dos Alimentos. Ficam para ocasiões especiais, como uma festa de anos.'},
+  {c:'Sal',q:'Qual destes alimentos costuma ter MAIS sal?',o:['Maçã','Cenoura crua','Batatas fritas de pacote','Água'],a:2,e:'As batatas fritas de pacote têm muito sal. O sal em excesso pode fazer mal ao coração.'}
+];
+const QUIZ_F=[
+  {c:'Roda dos Alimentos',q:'Na Roda dos Alimentos, qual destes grupos devemos comer em MENOR quantidade?',o:['Hortícolas','Fruta','Gorduras e óleos','Cereais, derivados e tubérculos'],a:2,e:'As gorduras e óleos são o grupo mais pequeno da Roda (2%). Precisamos só de um pouco, como um fio de azeite na sopa.'},
+  {c:'Água',q:'Está muito calor e acabaste de jogar à bola. O que deves fazer?',o:['Beber água','Beber um refrigerante bem fresco','Esperar até ter muita sede','Comer um gelado'],a:0,e:'Quando está calor ou fazemos desporto perdemos água pelo suor. Devemos beber água, mesmo antes de ter sede.'},
+  {c:'Fruta e hortícolas',q:'O que é melhor: comer uma laranja inteira ou beber um sumo de laranja?',o:['O sumo, porque tem mais vitaminas','A laranja inteira, porque tem mais fibra','É exatamente igual','Nenhum dos dois faz bem'],a:1,e:'A fruta inteira tem toda a fibra e deixa-nos saciados mais tempo. No sumo perde-se parte da fibra.'},
+  {c:'Refeições',q:'Quantas refeições devemos fazer por dia?',o:['Só uma refeição grande','Duas refeições','Cerca de 5 ou 6, sem passar muitas horas sem comer','Comer a toda a hora, sem parar'],a:2,e:'Pequeno-almoço, meio da manhã, almoço, lanche e jantar. O ideal é não passar mais de 3 horas e meia sem comer.'},
+  {c:'Açúcar',q:'Na lista de ingredientes de uns cereais, o açúcar aparece em primeiro lugar. O que quer dizer?',o:['Que têm pouco açúcar','Que o açúcar é o ingrediente em maior quantidade','Que não têm açúcar','Não quer dizer nada'],a:1,e:'Na lista de ingredientes, o primeiro é o que existe em maior quantidade. Estes cereais têm muito açúcar!'},
+  {c:'Sal',q:'Para dar sabor à comida sem usar muito sal, podemos usar…',o:['Mais sal','Cubos de caldo','Ketchup','Ervas aromáticas, como salsa, coentros ou orégãos'],a:3,e:'As ervas aromáticas dão sabor sem sal. Os cubos de caldo e o ketchup também têm muito sal.'}
+];
+const DIGITAL=[
+  {t:'Confirmar com um adulto de confiança (pais, professor, nutricionista)',ok:true},
+  {t:'Acreditar em tudo o que aparece no ecrã',ok:false,e:'Nem tudo o que aparece num ecrã está certo.'},
+  {t:'Saber que as respostas podem ter erros',ok:true},
+  {t:'Seguir uma dieta que vi num vídeo, sem falar com ninguém',ok:false,e:'Mudanças na alimentação devem ser sempre conversadas com um adulto ou um profissional de saúde.'},
+  {t:'Não escrever dados pessoais, como o nome completo ou a morada',ok:true}
+];
+const FEELS=['Aprendi muito','Aprendi algumas coisas','Ainda tenho dúvidas'];
+const PLEDGES=['Beber mais água','Comer fruta ao lanche','Comer sopa ao almoço e ao jantar','Trocar doces por fruta'];
+
+const REASONS=[
+  {id:'energia',label:'Dá energia'},
+  {id:'vitaminas',label:'Tem vitaminas e fibra'},
+  {id:'ossos',label:'Fortalece ossos e dentes'},
+  {id:'crescer',label:'Ajuda a crescer'},
+  {id:'hidrata',label:'Hidrata o corpo'}
+];
+const FOODS=[
+  {id:'pao',name:'Pão de mistura',g:'cereais',ok:['energia'],fb:'O pão pertence aos cereais e dá energia para brincar e aprender.'},
+  {id:'aveia',name:'Flocos de aveia',g:'cereais',ok:['energia'],fb:'A aveia é um cereal: dá energia e ainda tem fibra.'},
+  {id:'cenoura',name:'Palitos de cenoura',g:'horticolas',ok:['vitaminas'],fb:'A cenoura é um hortícola, cheio de vitaminas e fibra.'},
+  {id:'tomate',name:'Tomate-cereja',g:'horticolas',ok:['vitaminas'],fb:'O tomate-cereja é um hortícola com vitaminas e fibra.'},
+  {id:'maca',name:'Maçã',g:'fruta',ok:['vitaminas'],fb:'A maçã é fruta: tem vitaminas, minerais, água e fibra.'},
+  {id:'banana',name:'Banana',g:'fruta',ok:['vitaminas','energia'],fb:'A banana é fruta: tem vitaminas e fibra, e também dá energia.'},
+  {id:'tangerina',name:'Tangerina',g:'fruta',ok:['vitaminas'],fb:'A tangerina é fruta e tem muita vitamina C.'},
+  {id:'iogurte',name:'Iogurte natural',g:'laticinios',ok:['ossos','crescer'],fb:'O iogurte é um laticínio: tem cálcio para os ossos e proteína para crescer.'},
+  {id:'queijo',name:'Queijo fresco',g:'laticinios',ok:['ossos','crescer'],fb:'O queijo é um laticínio: tem cálcio para os ossos e proteína para crescer.'},
+  {id:'leite',name:'Leite',g:'laticinios',ok:['ossos','crescer'],fb:'O leite é um laticínio: tem cálcio para os ossos e proteína para crescer.'},
+  {id:'ovo',name:'Ovo cozido',g:'proteina',ok:['crescer'],fb:'O ovo tem proteína, que ajuda a crescer e a formar músculos.'},
+  {id:'humus',name:'Húmus de grão',g:'leguminosas',ok:['crescer','vitaminas'],fb:'O húmus é feito de grão-de-bico, uma leguminosa com proteína e fibra.'},
+  {id:'manteiga',name:'Um pouco de manteiga',g:'gorduras',ok:['energia'],fb:'A manteiga é uma gordura: dá energia, mas basta um pouco.'},
+  {id:'agua',name:'Água',g:'agua',ok:['hidrata'],fb:'A água hidrata o corpo e é a melhor bebida.'},
+  {id:'bolachas',name:'Bolachas recheadas',g:'ocasional',why:'têm muito açúcar e gordura',swap:'Troca por pão com queijo ou por fruta.'},
+  {id:'batatas',name:'Batatas fritas de pacote',g:'ocasional',why:'têm muito sal e gordura',swap:'Troca por palitos de cenoura ou tomate-cereja.'},
+  {id:'refri',name:'Refrigerante',g:'ocasional',why:'tem muito açúcar',swap:'Troca por água.'},
+  {id:'sumo',name:'Sumo de pacote',g:'ocasional',why:'costuma ter açúcar adicionado',swap:'Troca por água e uma peça de fruta.'},
+  {id:'bolo',name:'Bolo de chocolate',g:'ocasional',why:'tem muito açúcar e gordura',swap:'Guarda-o para uma festa e escolhe fruta.'},
+  {id:'gomas',name:'Gomas',g:'ocasional',why:'são quase só açúcar',swap:'Troca por fruta, que também é doce!'}
+];
+const FOOD=Object.fromEntries(FOODS.map(f=>[f.id,f]));
+const SHELF=['maca','bolachas','pao','agua','refri','queijo','cenoura','gomas','iogurte','banana','batatas','ovo','tangerina','sumo','aveia','humus','tomate','bolo','leite','manteiga'];
+
+const STEPS=[
+  {id:'quiz',n:1,title:'O que já sabes?',sub:'Quiz inicial',desc:'6 perguntas para começar',color:'var(--g-laticinios)',icon:TI.quiz},
+  {id:'perguntas',n:2,title:'Pergunta ao NutriBot',sub:'Dúvidas e respostas',desc:'20 perguntas sobre alimentação',color:'var(--g-horticolas)',icon:TI.chat},
+  {id:'lanche',n:3,title:'Constrói o teu lanche',sub:'Desafio interativo',desc:'Monta um lanche equilibrado',color:'var(--g-fruta)',icon:TI.box},
+  {id:'final',n:4,title:'O que aprendeste?',sub:'Avaliação final',desc:'Mostra o que aprendeste',color:'var(--g-cereais)',icon:TI.medal}
+];
+
+/* ---------- Estado ---------- */
+function fresh(){return {v:1,done:{quiz:false,perguntas:false,lanche:false,final:false},quizScore:null,quizRes:null,explored:[],lanche:[],reasons:{},final:null,big:false};}
+function load(){try{const s=JSON.parse(localStorage.getItem(KEY));if(s&&s.v===1)return Object.assign(fresh(),s);}catch(e){}return fresh();}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(state));}catch(e){}}
+let state=load();
+let cur='inicio';
+let chat=[],cat='todas',busy=false,typing=false;
+let fin={};
+
+/* ---------- Utilitários ---------- */
+function speak(t){try{const s=window.speechSynthesis;s.cancel();const u=new SpeechSynthesisUtterance(String(t).replace(/[«»]/g,''));u.lang='pt-PT';u.rate=.95;const vs=s.getVoices();const v=vs.find(v=>/pt[-_]PT/i.test(v.lang))||vs.find(v=>/^pt/i.test(v.lang));if(v)u.voice=v;s.speak(u);}catch(e){}}
+const sayBtn=t=>canSpeak?`<button class="say" data-say="${esc(t)}" aria-label="Ouvir em voz alta" title="Ouvir">${ICON.speaker}</button>`:'';
+const vhead=(k,t)=>`<div class="vhead"><button class="back" data-go="inicio">${ICON.back}Início</button><div><span class="kicker">${k}</span><h1>${t}</h1></div></div>`;
+const conceptList=res=>`<ul class="concepts">${(res||[]).map(r=>`<li class="${r.ok?'ok':'no'}">${r.ok?ICON.check:ICON.x}<span>${r.c}</span></li>`).join('')}</ul>`;
+const norm=s=>s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/[^a-z0-9 ]+/g,' ').replace(/\s+/g,' ').trim();
+
+function match(text){
+  const t=' '+norm(text)+' ';const words=t.trim().split(' ');
+  let best=null,bs=0;
+  for(const q of QA){
+    let s=0;
+    for(const k of q.k){
+      if(k.endsWith('$')){if(words.includes(k.slice(0,-1)))s+=k.length-1;}
+      else if(k.includes(' ')){if(t.includes(' '+k))s+=k.length;}
+      else if(words.some(w=>w.startsWith(k)))s+=k.length;
+    }
+    if(s>bs){bs=s;best=q;}
+  }
+  return best;
+}
+
+function pips(){
+  document.getElementById('pips').innerHTML=STEPS.map(s=>{const d=state.done[s.id];return `<button class="pip ${d?'done':''} ${cur===s.id?'cur':''}" data-go="${s.id}" aria-label="Etapa ${s.n}: ${s.title}${d?' (feita)':''}" title="${s.title}">${d?ICON.check:s.n}</button>`;}).join('');
+}
+function go(name){
+  cur=name;view.onclick=null;
+  const V={inicio:vInicio,quiz:()=>vQuiz(false),perguntas:vPerguntas,lanche:vLanche,final:()=>vFinal(false)};
+  (V[name]||vInicio)();
+  pips();window.scrollTo(0,0);
+  const h=view.querySelector('h1');if(h){h.tabIndex=-1;h.focus({preventScroll:true});}
+}
+
+/* ---------- Início ---------- */
+function vInicio(){
+  const n=STEPS.filter(s=>state.done[s.id]).length;
+  const next=STEPS.find(s=>!state.done[s.id]);
+  const msg=n===0?'Olá! Eu sou o NutriBot, o teu amigo da alimentação saudável. Hoje vamos descobrir como comer bem, em quatro etapas. Começa por mostrar o que já sabes!'
+    :next?`Muito bem! Já fizeste ${n} de 4 etapas. A seguir: «${next.title}».`
+    :'Fizeste as quatro etapas. Parabéns! Podes ver o teu resumo em «O que aprendeste?».';
+  view.innerHTML=`<h1 class="sr">NutriBot: início</h1>
+  <section class="hero"><div class="hero-bot">${ROBOT}</div><div class="speech"><p>${msg}</p>${sayBtn(msg)}</div></section>
+  <div class="tiles">${STEPS.map(s=>{const d=state.done[s.id],nx=next&&next.id===s.id;return `<button class="tile ${d?'done':''} ${nx?'next':''}" data-go="${s.id}" style="--t:${s.color}">
+    <span class="ticon">${s.icon}</span>
+    <span class="ttext"><small>Etapa ${s.n} · ${s.sub}</small><b>${s.title}</b><span>${s.desc}</span></span>
+    <span class="tstat">${d?ICON.check+'Feito':nx?'Começar':'Por fazer'}</span></button>`;}).join('')}</div>
+  <footer class="foot">
+    <p><b>Como funciona o NutriBot:</b> todas as respostas foram escritas e verificadas pelo grupo, com base na Roda dos Alimentos da Direção-Geral da Saúde. O NutriBot não usa inteligência artificial em tempo real: só responde com respostas preparadas e não pede dados pessoais. Em caso de dúvida, pergunta a um adulto.</p>
+    <button class="link" data-reset>Recomeçar para outro aluno</button>
+  </footer>`;
+}
+
+/* ---------- Motor de quiz ---------- */
+function runQuiz(list,meta,onDone){
+  let i=0,score=0;const res=[];
+  const draw=()=>{
+    const q=list[i];
+    view.innerHTML=vhead(meta.kicker,meta.title)+`<div class="qcard">
+      <div class="qmeta"><span>Pergunta ${i+1} de ${list.length}</span><span class="tag">${q.c}</span></div>
+      <div class="bar"><span style="width:${i/list.length*100}%"></span></div>
+      <div class="qrow"><h2 id="qt">${q.q}</h2>${sayBtn(q.q+' '+q.o.join('. '))}</div>
+      <div class="opts" role="group" aria-labelledby="qt">${q.o.map((t,k)=>`<button class="opt" data-k="${k}"><span class="key">${'ABCD'[k]}</span><span>${t}</span></button>`).join('')}</div>
+      <div class="fb" id="fb" hidden aria-live="polite"></div>
+      <div class="actions" id="nx" hidden><button class="btn" id="nextb">${i===list.length-1?'Ver resultado':'Seguinte'}${ICON.arrow}</button></div>
+    </div>`;
+  };
+  const answer=k=>{
+    const q=list[i],ok=k===q.a;if(ok)score++;res.push({c:q.c,ok});
+    view.querySelectorAll('.opt').forEach((b,j)=>{b.disabled=true;if(j===q.a)b.classList.add('right');else if(j===k)b.classList.add('wrong');else b.classList.add('dim');});
+    const fb=view.querySelector('#fb');fb.hidden=false;fb.className='fb '+(ok?'good':'bad');
+    fb.innerHTML=`${ok?'<b>Certo!</b>':`<b>Quase!</b> A resposta certa é a ${'ABCD'[q.a]}.`} ${q.e}`;
+    view.querySelector('.bar span').style.width=((i+1)/list.length*100)+'%';
+    view.querySelector('#nx').hidden=false;view.querySelector('#nextb').focus();
+  };
+  view.onclick=e=>{
+    const o=e.target.closest('.opt');if(o&&!o.disabled){answer(+o.dataset.k);return;}
+    if(e.target.closest('#nextb')){i++;if(i<list.length){draw();view.querySelector('.opt').focus();}else onDone(score,res);}
+  };
+  draw();
+}
+
+/* ---------- Etapa 1: quiz inicial ---------- */
+function vQuiz(again){
+  if(state.done.quiz&&!again)return quizEnd();
+  runQuiz(QUIZ_I,{kicker:'Etapa 1 · Quiz inicial',title:'O que já sabes?'},(score,res)=>{state.quizScore=score;state.quizRes=res;state.done.quiz=true;save();pips();quizEnd();});
+}
+function quizEnd(){
+  const s=state.quizScore;
+  const title=s>=5?'Uau, já sabes muito!':s>=3?'Bom começo!':'Vamos aprender juntos!';
+  view.innerHTML=vhead('Etapa 1 · Quiz inicial','O que já sabes?')+`<div class="qcard">
+    <div class="score"><b>${s}</b><span>de 6 certas</span></div>
+    <h2>${title}</h2>
+    <p class="mt">Este quiz serve para descobrires o que já sabes. Não faz mal errar: no fim vais ver quanto aprendeste.</p>
+    ${conceptList(state.quizRes)}
+    <div class="actions"><button class="btn" data-go="perguntas">Pergunta ao NutriBot${ICON.arrow}</button><button class="btn ghost" id="redo">Fazer outra vez</button></div>
+  </div>`;
+  view.onclick=e=>{if(e.target.closest('#redo'))vQuiz(true);};
+}
+
+/* ---------- Etapa 2: perguntas ---------- */
+const WELCOME='Olá! Escolhe uma pergunta da lista ou escreve a tua. As minhas respostas foram escritas e verificadas pelo grupo, com base na Roda dos Alimentos.';
+function vPerguntas(){
+  if(!chat.length)chat.push({who:'bot',text:WELCOME});
+  view.innerHTML=vhead('Etapa 2 · Dúvidas e respostas','Pergunta ao NutriBot')+`
+  <div class="meter" id="meter"></div>
+  <div class="chatwrap">
+    <section class="chat" id="chatbox" aria-label="Conversa com o NutriBot">
+      <div class="log" id="log" aria-live="polite"></div>
+      <form class="composer" id="askf"><label class="sr" for="ask">Escreve a tua pergunta</label><input id="ask" autocomplete="off" placeholder="Escreve a tua pergunta…" maxlength="120"><button class="btn small" type="submit">Perguntar</button></form>
+    </section>
+    <aside class="picker" aria-label="Lista de perguntas">
+      <h2>Experimenta uma pergunta</h2>
+      <div class="chips" id="cats"></div>
+      <div class="qlist" id="qlist"></div>
+      <p class="note">${QA.length} perguntas preparadas e verificadas pelo grupo.</p>
+    </aside>
+  </div>`;
+  renderLog();renderPicker();renderMeter();
+  view.querySelector('#askf').onsubmit=e=>{e.preventDefault();const inp=view.querySelector('#ask');const t=inp.value.trim();if(!t||busy)return;inp.value='';askTyped(t);};
+  view.onclick=e=>{
+    const c=e.target.closest('[data-cat]');if(c){cat=c.dataset.cat;renderPicker();const b=view.querySelector(`[data-cat="${cat}"]`);if(b)b.focus();return;}
+    const q=e.target.closest('[data-q]');if(q){ask(+q.dataset.q);}
+  };
+}
+function chatIntoView(){const box=document.getElementById('chatbox');if(box&&window.matchMedia('(max-width: 820px)').matches){const r=box.getBoundingClientRect();if(r.top<0||r.bottom>window.innerHeight)box.scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'});}}
+function ask(id,typed){
+  if(busy)return;const q=QA.find(x=>x.id===id);busy=true;
+  chat.push({who:'user',text:typed||q.q});typing=true;renderLog();chatIntoView();
+  setTimeout(()=>{
+    typing=false;
+    chat.push({who:'bot',tag:CATS[q.cat],lead:typed?`Encontrei esta pergunta: «${q.q}»`:'',text:q.a});
+    const before=state.explored.length;
+    if(!state.explored.includes(id))state.explored.push(id);
+    if(before<3&&state.explored.length>=3){state.done.perguntas=true;chat.push({who:'bot',text:'Boa! Já exploraste 3 perguntas e cumpriste o objetivo desta etapa. Podes continuar a perguntar ou passar ao desafio do lanche.'});pips();}
+    save();busy=false;renderLog();renderPicker();renderMeter();
+  },reduce?150:750);
+}
+function askTyped(t){
+  const q=match(t);if(q)return ask(q.id,t);
+  busy=true;chat.push({who:'user',text:t});typing=true;renderLog();
+  setTimeout(()=>{typing=false;chat.push({who:'bot',text:'Ainda não aprendi a responder a essa pergunta. Pede ajuda ao teu professor ou escolhe uma das perguntas da lista.'});busy=false;renderLog();},reduce?150:750);
+}
+function renderLog(){
+  const log=document.getElementById('log');if(!log)return;
+  log.innerHTML=chat.map(m=>m.who==='user'?`<div class="msg user">${esc(m.text)}</div>`
+    :`<div class="msg bot"><span class="ava">${ROBOT}</span><div class="bubble">${m.tag?`<span class="btag">${m.tag}</span>`:''}${m.lead?`<p class="lead">${m.lead}</p>`:''}<p>${m.text}</p>${sayBtn(m.text)}</div></div>`).join('')
+    +(typing?`<div class="msg bot"><span class="ava">${ROBOT}</span><div class="bubble typing" role="status" aria-label="O NutriBot está a escrever"><span></span><span></span><span></span></div></div>`:'');
+  log.scrollTop=log.scrollHeight;
+}
+function renderPicker(){
+  const cats=document.getElementById('cats'),list=document.getElementById('qlist');if(!cats)return;
+  cats.innerHTML=[['todas','Todas'],...Object.entries(CATS)].map(([k,v])=>`<button class="chip" data-cat="${k}" aria-pressed="${cat===k}">${v}</button>`).join('');
+  list.innerHTML=QA.filter(q=>cat==='todas'||q.cat===cat).map(q=>{const s=state.explored.includes(q.id);return `<button class="qbtn ${s?'seen':''}" data-q="${q.id}"><span class="mk">${s?ICON.check:''}</span><span>${q.q}</span></button>`;}).join('');
+}
+function renderMeter(){
+  const m=document.getElementById('meter');if(!m)return;const n=state.explored.length;
+  m.innerHTML=`<div class="dots" aria-hidden="true">${[0,1,2].map(i=>`<span class="${i<n?'on':''}"></span>`).join('')}</div>
+  <p>${n>=3?`Objetivo cumprido! Exploraste ${n} de ${QA.length} perguntas.`:`Explora pelo menos 3 perguntas · ${n} de 3`}</p>
+  ${n>=3?`<button class="btn small" data-go="lanche">Desafio do lanche${ICON.arrow}</button>`:''}`;
+}
+
+/* ---------- Etapa 3: lanche ---------- */
+function P(r,a){const t=a*Math.PI/180;return [(100+r*Math.cos(t)).toFixed(2),(100+r*Math.sin(t)).toFixed(2)];}
+function arc(a1,a2,R,r){const L=(a2-a1)>180?1:0;const [x1,y1]=P(R,a1),[x2,y2]=P(R,a2),[x3,y3]=P(r,a2),[x4,y4]=P(r,a1);return `M${x1} ${y1}A${R} ${R} 0 ${L} 1 ${x2} ${y2}L${x3} ${y3}A${r} ${r} 0 ${L} 0 ${x4} ${y4}Z`;}
+function wheel(active,water){
+  let a=-90,s='';
+  for(const g of ORDER){const sw=GROUPS[g].pct*3.6;s+=`<path d="${arc(a+.8,a+sw-.8,94,46)}" style="fill:var(--g-${g})" class="seg ${active.has(g)?'on':''}"><title>${GROUPS[g].name} · ${GROUPS[g].pct}%</title></path>`;a+=sw;}
+  s+=`<g class="seg ${water?'on':''}"><title>Água</title><circle cx="100" cy="100" r="40" style="fill:var(--g-agua)"/><path d="M100 79c7 10 12 16 12 23a12 12 0 0 1-24 0c0-7 5-13 12-23z" style="fill:var(--surface)" opacity=".9"/></g>`;
+  return `<svg viewBox="0 0 200 200" role="img" aria-label="Roda dos Alimentos: o teu lanche tem ${active.size} de 7 grupos${water?' e água':''}">${s}</svg>`;
+}
+function lancheStatus(){
+  const sel=state.lanche.map(id=>FOOD[id]);
+  const groups=new Set(sel.filter(f=>GROUPS[f.g]).map(f=>f.g));
+  const water=sel.some(f=>f.g==='agua');
+  const occ=sel.filter(f=>f.g==='ocasional');
+  return {sel,groups,water,occ,balanced:groups.size>=3&&water&&occ.length===0};
+}
+function vLanche(){
+  view.innerHTML=vhead('Etapa 3 · Desafio interativo','Constrói o teu lanche')+`
+  <p class="lede">Monta um lanche para levar para a escola. Escolhe até 5 alimentos. A Roda dos Alimentos acende-se com os grupos que escolheres.</p>
+  <div class="lanche">
+    <section class="box" aria-labelledby="lb-h">
+      <h2 id="lb-h">A tua lancheira <span class="count" id="lcount"></span></h2>
+      <div class="slots" id="slots"></div>
+      <p class="lnote" id="lnote" role="status" hidden></p>
+      <div class="wheelrow"><div class="wheel" id="wheel"></div><ul class="legend" id="legend"></ul></div>
+      <ul class="checks" id="checks" aria-live="polite"></ul>
+    </section>
+    <section class="box" aria-labelledby="sh-h">
+      <h2 id="sh-h">Escolhe os alimentos</h2>
+      <div class="shelf" id="shelf">${SHELF.map(id=>`<button class="food" data-food="${id}" aria-pressed="false">${fi(id)}<span>${FOOD[id].name}</span><span class="tick">${ICON.check}</span></button>`).join('')}</div>
+    </section>
+  </div>
+  <section class="box just" id="just" hidden></section>`;
+  updLanche();
+  view.onclick=e=>{
+    const f=e.target.closest('[data-food]');if(f){toggleFood(f.dataset.food);return;}
+    const r=e.target.closest('[data-rm]');if(r){const id=r.dataset.rm;toggleFood(id);const b=view.querySelector(`[data-food="${id}"]`);if(b)b.focus({preventScroll:true});return;}
+    const j=e.target.closest('[data-just]');if(j){const id=j.dataset.just,rr=j.dataset.r;state.reasons[id]=rr;save();updJust();const b=view.querySelector(`[data-just="${id}"][data-r="${rr}"]`);if(b)b.focus();return;}
+    if(e.target.closest('#ldone')){state.done.lanche=true;save();pips();updJust();const b=view.querySelector('.win .btn');if(b)b.focus();}
+  };
+}
+function toggleFood(id){
+  const i=state.lanche.indexOf(id),note=document.getElementById('lnote');
+  if(i>=0){state.lanche.splice(i,1);delete state.reasons[id];note.hidden=true;}
+  else if(state.lanche.length>=5){note.hidden=false;note.textContent='A lancheira está cheia! Tira um alimento para pôr outro.';return;}
+  else{state.lanche.push(id);note.hidden=true;}
+  save();updLanche();
+}
+function updLanche(){
+  const st=lancheStatus();
+  document.getElementById('lcount').textContent=`${st.sel.length}/5`;
+  document.getElementById('slots').innerHTML=st.sel.map(f=>`<span class="slot full">${fi(f.id)}<span class="nm">${f.name}</span><button class="rm" data-rm="${f.id}" aria-label="Tirar ${f.name}">${ICON.x}</button></span>`).join('')
+    +Array.from({length:5-st.sel.length},()=>'<span class="slot" aria-hidden="true">+</span>').join('');
+  document.getElementById('wheel').innerHTML=wheel(st.groups,st.water);
+  document.getElementById('legend').innerHTML=ORDER.map(g=>`<li class="${st.groups.has(g)?'on':''}"><span class="sw" style="background:var(--g-${g})"></span>${GROUPS[g].short}<span class="pct">${GROUPS[g].pct}%</span></li>`).join('')
+    +`<li class="${st.water?'on':''}"><span class="sw" style="background:var(--g-agua)"></span>Água<span class="pct">centro</span></li>`;
+  view.querySelectorAll('.food').forEach(b=>{const on=state.lanche.includes(b.dataset.food);b.classList.toggle('sel',on);b.setAttribute('aria-pressed',String(on));});
+  const li=(cls,t,sub)=>`<li class="${cls}"><span class="ck">${cls==='ok'?ICON.check:cls==='warn'?ICON.x:''}</span><span><b>${t}</b>${sub?`<small>${sub}</small>`:''}</span></li>`;
+  document.getElementById('checks').innerHTML=
+    li(st.groups.size>=3?'ok':'','Pelo menos 3 grupos da Roda',`Tens ${st.groups.size} de 3 grupos.`)
+    +li(st.water?'ok':'','Água para beber',st.water?'A água é a melhor bebida.':'Junta água à tua lancheira.')
+    +(st.occ.length?st.occ.map(f=>li('warn',`${f.name}: ${f.why}.`,f.swap)).join('')
+      :li(st.sel.length?'ok':'','Nada para ocasiões especiais','Bolos, gomas e refrigerantes ficam para as festas.'));
+  updJust();
+}
+function updJust(){
+  const box=document.getElementById('just');if(!box)return;
+  const st=lancheStatus();
+  if(!st.balanced){box.hidden=true;box.innerHTML='';return;}
+  box.hidden=false;
+  let right=0;
+  const rows=st.sel.map(f=>{
+    const ch=state.reasons[f.id],ok=!!ch&&f.ok.includes(ch);if(ok)right++;
+    const hint=f.g==='agua'?'Pista: o que acontece ao teu corpo quando bebes água?':`Pista: este alimento é do grupo «${GROUPS[f.g].name}». O que nos dá este grupo?`;
+    const fb=!ch?'':ok?`<p class="jfb good">${ICON.check}<span>${f.fb}</span></p>`:`<p class="jfb bad"><span>Pensa outra vez. ${hint}</span></p>`;
+    return `<div class="jrow"><div class="jfood">${fi(f.id)}<span>${f.name}</span></div>
+      <div class="jopts" role="group" aria-label="Porque escolheste: ${f.name}?">${REASONS.map(r=>`<button class="chip ${ch===r.id?(ok?'right':'wrong'):''}" data-just="${f.id}" data-r="${r.id}" aria-pressed="${ch===r.id}">${r.label}</button>`).join('')}</div>${fb}</div>`;
+  }).join('');
+  const won=state.done.lanche&&right>=2;
+  box.innerHTML=`<h2>Lanche equilibrado! Agora explica as tuas escolhas</h2>
+    <p class="lede">Para cada alimento, toca na razão que achas certa. Precisas de pelo menos 2 explicações certas.</p>
+    <div class="jrows">${rows}</div>
+    ${won?`<div class="win">${ROBOT}<div><b>Desafio cumprido!</b><p>Construíste um lanche equilibrado e explicaste ${right} escolhas.</p></div><button class="btn" data-go="final">O que aprendeste?${ICON.arrow}</button></div>`
+      :`<div class="jfoot"><span class="count">${Math.min(right,2)} de 2 explicações certas</span><button class="btn" id="ldone" ${right>=2?'':'disabled'}>Concluir desafio</button></div>`}`;
+}
+
+/* ---------- Etapa 4: avaliação final ---------- */
+function vFinal(again){
+  if(state.done.final&&state.final&&!again)return finalResults();
+  runQuiz(QUIZ_F,{kicker:'Etapa 4 · Avaliação final',title:'O que aprendeste?'},(score,res)=>{fin={score,res};vDigital();});
+}
+function vDigital(){
+  const picked=new Set();
+  const q='Que cuidados deves ter com as respostas de aplicações e da internet?';
+  view.innerHTML=vhead('Etapa 4 · Avaliação final','O que aprendeste?')+`<div class="qcard">
+    <div class="qmeta"><span>Última pergunta</span><span class="tag">Cidadania digital</span></div>
+    <div class="bar"><span style="width:100%"></span></div>
+    <div class="qrow"><h2 id="qt">${q}</h2>${sayBtn(q+' '+DIGITAL.map(d=>d.t).join('. '))}</div>
+    <p class="hint">Escolhe todas as respostas que achas certas.</p>
+    <div class="opts" role="group" aria-labelledby="qt">${DIGITAL.map((d,k)=>`<button class="opt check" data-d="${k}" aria-pressed="false"><span class="cbox">${ICON.check}</span><span>${d.t}</span></button>`).join('')}</div>
+    <div class="fb" id="fb" hidden aria-live="polite"></div>
+    <div class="actions"><button class="btn" id="dconf" disabled>Confirmar</button><button class="btn" id="dnext" hidden>Continuar${ICON.arrow}</button></div>
+  </div>`;
+  view.querySelector('.opt').focus();
+  view.onclick=e=>{
+    const o=e.target.closest('[data-d]');
+    if(o&&!o.disabled){const k=+o.dataset.d;picked.has(k)?picked.delete(k):picked.add(k);o.setAttribute('aria-pressed',String(picked.has(k)));view.querySelector('#dconf').disabled=!picked.size;return;}
+    if(e.target.closest('#dconf')){
+      let good=0;const notes=[];
+      view.querySelectorAll('[data-d]').forEach(b=>{const k=+b.dataset.d,d=DIGITAL[k];b.disabled=true;
+        if(picked.has(k)){if(d.ok){good++;b.classList.add('right');}else{b.classList.add('wrong');notes.push(d.e);}}
+        else if(d.ok)b.classList.add('missed');else b.classList.add('dim');});
+      fin.digitalOk=good;
+      const fb=view.querySelector('#fb');fb.hidden=false;fb.className='fb '+(good?'good':'bad');
+      fb.innerHTML=`<b>${good?`Identificaste ${good} ${good===1?'cuidado importante':'cuidados importantes'}.`:'Ainda não identificaste nenhum cuidado.'}</b> ${notes.join(' ')} As opções com contorno verde são cuidados importantes.`;
+      view.querySelector('#dconf').hidden=true;const n=view.querySelector('#dnext');n.hidden=false;n.focus();return;
+    }
+    if(e.target.closest('#dnext'))vReflexao();
+  };
+}
+function vReflexao(){
+  let feel=null,pledge=null;
+  view.innerHTML=vhead('Etapa 4 · Avaliação final','O que aprendeste?')+`<div class="qcard">
+    <div class="qmeta"><span>Autoavaliação</span><span class="tag">Reflexão</span></div>
+    <h2 class="mt-s" id="f-h">Como te sentes com o que aprendeste hoje?</h2>
+    <div class="faces" role="group" aria-labelledby="f-h">${FEELS.map((f,k)=>`<button class="face" data-f="${k}" aria-pressed="false">${face(k)}<span>${f}</span></button>`).join('')}</div>
+    <h2 id="p-h">O que vais experimentar esta semana?</h2>
+    <div class="opts two mt-s" role="group" aria-labelledby="p-h">${PLEDGES.map((p,k)=>`<button class="opt" data-p="${k}" aria-pressed="false"><span>${p}</span></button>`).join('')}</div>
+    <div class="actions"><button class="btn" id="rdone" disabled>Ver os meus resultados${ICON.arrow}</button></div>
+  </div>`;
+  const upd=()=>{
+    view.querySelectorAll('[data-f]').forEach(b=>b.setAttribute('aria-pressed',String(+b.dataset.f===feel)));
+    view.querySelectorAll('[data-p]').forEach(b=>b.setAttribute('aria-pressed',String(+b.dataset.p===pledge)));
+    view.querySelector('#rdone').disabled=feel===null||pledge===null;
+  };
+  view.onclick=e=>{
+    const f=e.target.closest('[data-f]');if(f){feel=+f.dataset.f;upd();return;}
+    const p=e.target.closest('[data-p]');if(p){pledge=+p.dataset.p;upd();return;}
+    if(e.target.closest('#rdone')){state.final={score:fin.score,res:fin.res,digitalOk:fin.digitalOk||0,feel,pledge};state.done.final=true;save();pips();finalResults();window.scrollTo(0,0);}
+  };
+}
+function finalResults(){
+  const f=state.final,s=f.score,qi=state.quizScore;
+  const title=s>=5?'Excelente trabalho!':s>=4?'Muito bem!':'Estás no bom caminho!';
+  const n=state.explored.length;
+  const objs=[
+    {t:'Identificar pelo menos 4 de 6 conceitos',d:`${s} de 6 conceitos certos na avaliação final`,ok:s>=4},
+    {t:'Explorar pelo menos 3 perguntas no NutriBot',d:`${n} ${n===1?'pergunta explorada':'perguntas exploradas'}`,ok:n>=3},
+    {t:'Construir um lanche equilibrado e justificar 2 escolhas',d:state.done.lanche?'Lanche equilibrado com escolhas justificadas':'Desafio do lanche por concluir',ok:state.done.lanche},
+    {t:'Identificar um cuidado com ferramentas digitais',d:`${f.digitalOk} ${f.digitalOk===1?'cuidado identificado':'cuidados identificados'}`,ok:f.digitalOk>=1}
+  ];
+  view.innerHTML=vhead('Etapa 4 · Avaliação final','O que aprendeste?')+`<div class="results">
+    <section class="qcard">
+      <div class="score"><b>${s}</b><span>de 6 conceitos certos</span></div>
+      <h2>${title}</h2>
+      ${qi!=null?`<div class="cmp" role="img" aria-label="Quiz inicial ${qi} de 6, avaliação final ${s} de 6">
+        <div class="row"><span>Quiz inicial</span><span class="track"><span style="width:${qi/6*100}%"></span></span><span>${qi}/6</span></div>
+        <div class="row now"><span>Agora</span><span class="track"><span style="width:${s/6*100}%"></span></span><span>${s}/6</span></div></div>`:''}
+      ${conceptList(f.res)}
+      <div class="pledge"><b>O teu desafio desta semana:</b> ${PLEDGES[f.pledge]}.</div>
+      <div class="actions"><button class="btn" data-go="inicio">Voltar ao início</button><button class="btn ghost" id="again">Fazer outra vez</button></div>
+    </section>
+    <section class="box">
+      <h2>Resumo para o professor</h2>
+      <ol class="objs">${objs.map(o=>`<li><span><b>${o.t}</b><small>${o.d}</small></span><span class="st ${o.ok?'ok':'no'}">${o.ok?'Cumprido':'Por cumprir'}</span></li>`).join('')}</ol>
+      <p class="note">Autoavaliação do aluno: «${FEELS[f.feel]}».</p>
+      <button class="link mt-s" data-reset>Recomeçar para outro aluno</button>
+    </section>
+  </div>`;
+  view.onclick=e=>{if(e.target.closest('#again'))vFinal(true);};
+}
+
+/* ---------- Global ---------- */
+function handleReset(b){
+  if(!b.classList.contains('armed')){
+    b.classList.add('armed');b.dataset.label=b.textContent;b.textContent='Tens a certeza? Toca outra vez para apagar o progresso';
+    setTimeout(()=>{if(b.isConnected&&b.classList.contains('armed')){b.classList.remove('armed');b.textContent=b.dataset.label;}},4000);return;
+  }
+  const big=state.big;state=fresh();state.big=big;chat=[];cat='todas';fin={};save();go('inicio');
+}
+document.addEventListener('click',e=>{
+  const s=e.target.closest('.say');if(s){speak(s.dataset.say);return;}
+  const g=e.target.closest('[data-go]');if(g){go(g.dataset.go);return;}
+  const r=e.target.closest('[data-reset]');if(r){handleReset(r);}
+});
+const aa=document.getElementById('aa');
+function applyBig(){document.documentElement.classList.toggle('big',!!state.big);aa.setAttribute('aria-pressed',String(!!state.big));}
+aa.addEventListener('click',()=>{state.big=!state.big;save();applyBig();});
+document.getElementById('brandbot').innerHTML=ROBOT;
+applyBig();
+const h=(location.hash||'').slice(1);
+go(['quiz','perguntas','lanche','final'].includes(h)?h:'inicio');
+})();
+</script>
+</body>
+</html>
