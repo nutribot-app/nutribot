@@ -2,19 +2,14 @@
 <html lang="pt-PT">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>NutriBot – Aprender a Comer com Saúde</title>
-<meta name="description" content="NutriBot: uma aplicação para aprender a comer com saúde, pensada para o 4.º ano.">
-<meta name="theme-color" content="#1f7a46">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Cpath%20d%3D%22M32%2015V8%22%20stroke%3D%22%231d6b3f%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22/%3E%3Cpath%20d%3D%22M32%208c1-4%205-6%209-5-1%204-5%206-9%205z%22%20fill%3D%22%236cc46a%22/%3E%3Crect%20x%3D%225%22%20y%3D%2227%22%20width%3D%226%22%20height%3D%2212%22%20rx%3D%223%22%20fill%3D%22%231d6b3f%22/%3E%3Crect%20x%3D%2253%22%20y%3D%2227%22%20width%3D%226%22%20height%3D%2212%22%20rx%3D%223%22%20fill%3D%22%231d6b3f%22/%3E%3Crect%20x%3D%229%22%20y%3D%2214%22%20width%3D%2246%22%20height%3D%2238%22%20rx%3D%2215%22%20fill%3D%22%232e9d5b%22/%3E%3Crect%20x%3D%2215%22%20y%3D%2221%22%20width%3D%2234%22%20height%3D%2223%22%20rx%3D%2210%22%20fill%3D%22%23eafbf0%22/%3E%3Ccircle%20cx%3D%2225%22%20cy%3D%2231%22%20r%3D%223.6%22%20fill%3D%22%2315301f%22/%3E%3Ccircle%20cx%3D%2239%22%20cy%3D%2231%22%20r%3D%223.6%22%20fill%3D%22%2315301f%22/%3E%3Ccircle%20cx%3D%2226.2%22%20cy%3D%2229.8%22%20r%3D%221.1%22%20fill%3D%22%23fff%22/%3E%3Ccircle%20cx%3D%2240.2%22%20cy%3D%2229.8%22%20r%3D%221.1%22%20fill%3D%22%23fff%22/%3E%3Cpath%20d%3D%22M27%2037.5c3%202.6%207%202.6%2010%200%22%20stroke%3D%22%2315301f%22%20stroke-width%3D%222.4%22%20fill%3D%22none%22%20stroke-linecap%3D%22round%22/%3E%3Ccircle%20cx%3D%2219.5%22%20cy%3D%2237%22%20r%3D%222.3%22%20fill%3D%22%23f6a48f%22%20opacity%3D%22.85%22/%3E%3Ccircle%20cx%3D%2244.5%22%20cy%3D%2237%22%20r%3D%222.3%22%20fill%3D%22%23f6a48f%22%20opacity%3D%22.85%22/%3E%3C/svg%3E">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="NutriBot – Aprender a Comer com Saúde: aplicação de educação alimentar para o 4.º ano do Ensino Básico.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20x%3D%229%22%20y%3D%2214%22%20width%3D%2246%22%20height%3D%2238%22%20rx%3D%2215%22%20fill%3D%22%232e9d5b%22/%3E%3Crect%20x%3D%2215%22%20y%3D%2221%22%20width%3D%2234%22%20height%3D%2223%22%20rx%3D%2210%22%20fill%3D%22%23eafbf0%22/%3E%3Ccircle%20cx%3D%2225%22%20cy%3D%2231%22%20r%3D%223.6%22%20fill%3D%22%2315301f%22/%3E%3Ccircle%20cx%3D%2239%22%20cy%3D%2231%22%20r%3D%223.6%22%20fill%3D%22%2315301f%22/%3E%3Cpath%20d%3D%22M27%2037.5c3%202.6%207%202.6%2010%200%22%20stroke%3D%22%2315301f%22%20stroke-width%3D%222.4%22%20fill%3D%22none%22%20stroke-linecap%3D%22round%22/%3E%3Cpath%20d%3D%22M32%2014V8%22%20stroke%3D%22%231d6b3f%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22/%3E%3Cpath%20d%3D%22M32%208c1-4%205-6%209-5-1%204-5%206-9%205z%22%20fill%3D%22%236cc46a%22/%3E%3C/svg%3E">
+<style>body{margin:0}img{max-width:100%}</style>
+<title>NutriBot</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Andika:wght@400;700&family=Grandstander:wght@600;800&display=swap">
-<style>
-html,body{margin:0;padding:0}
-img{max-width:100%}
-[hidden]:not([hidden=until-found i]){display:none!important}
-</style>
 <style>
 :root{
   /* Layout: caderno quadriculado do 1.º ciclo — coluna de app até 1040px, cartões sobre a grelha, cores dos 7 grupos da Roda dos Alimentos */
@@ -45,6 +40,16 @@ img{max-width:100%}
   --g-leguminosas:#8a6a3d;
   --g-gorduras:#e0b928;
   --g-agua:#4fbcd6;
+  --sc-wall:#e6f0fb;
+  --sc-tile:rgba(66,128,200,.14);
+  --sc-top:#d3ad7f;
+  --sc-counter:#f3e6d3;
+  --sc-line:rgba(130,95,55,.30);
+  --sc-line2:#9fb3cc;
+  --sc-wood:#b98a5a;
+  --sc-clock:#ffffff;
+  --sc-bubble:#ffffff;
+  --sc-steam:rgba(110,130,160,.7);
   --f-display:'Grandstander','Trebuchet MS',system-ui,sans-serif;
   --f-body:'Andika','Segoe UI',system-ui,-apple-system,sans-serif;
 }
@@ -54,6 +59,7 @@ img{max-width:100%}
     --bot:#4cc47f;--btn-bg:#4cc47f;--btn-fg:#0a1b11;--user-bg:#24406b;--focus:#7db7f2;
     --ok:#62d391;--ok-bg:rgba(98,211,145,.14);--no:#ff8f7f;--no-bg:rgba(255,143,127,.13);--tip-bg:rgba(226,185,62,.12);--tip-line:#a88a2e;
     --icon-line:rgba(236,241,250,.55);
+    --sc-wall:#15223a;--sc-tile:rgba(140,180,240,.08);--sc-top:#8a6a48;--sc-counter:#2e2a26;--sc-line:rgba(255,225,180,.16);--sc-line2:#55688c;--sc-wood:#8a6a48;--sc-clock:#e8eef8;--sc-bubble:#22304d;--sc-steam:rgba(225,235,250,.65);
     --g-cereais:#e3a940;--g-horticolas:#55b563;--g-fruta:#f06e50;--g-laticinios:#5d9ee6;--g-proteina:#cf6597;--g-leguminosas:#ad8a58;--g-gorduras:#ecc83c;--g-agua:#5fcbe3;
     color-scheme:dark;
   }
@@ -63,11 +69,13 @@ img{max-width:100%}
   --bot:#4cc47f;--btn-bg:#4cc47f;--btn-fg:#0a1b11;--user-bg:#24406b;--focus:#7db7f2;
   --ok:#62d391;--ok-bg:rgba(98,211,145,.14);--no:#ff8f7f;--no-bg:rgba(255,143,127,.13);--tip-bg:rgba(226,185,62,.12);--tip-line:#a88a2e;
   --icon-line:rgba(236,241,250,.55);
+  --sc-wall:#15223a;--sc-tile:rgba(140,180,240,.08);--sc-top:#8a6a48;--sc-counter:#2e2a26;--sc-line:rgba(255,225,180,.16);--sc-line2:#55688c;--sc-wood:#8a6a48;--sc-clock:#e8eef8;--sc-bubble:#22304d;--sc-steam:rgba(225,235,250,.65);
   --g-cereais:#e3a940;--g-horticolas:#55b563;--g-fruta:#f06e50;--g-laticinios:#5d9ee6;--g-proteina:#cf6597;--g-leguminosas:#ad8a58;--g-gorduras:#ecc83c;--g-agua:#5fcbe3;
   color-scheme:dark;
 }
 
 *,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
 html{font-size:16px}
 html.big{font-size:19px}
 body{
@@ -315,10 +323,166 @@ p{margin:0}
 .st.ok{background:var(--ok-bg);color:var(--ok)}
 .st.no{background:var(--surface-2);color:var(--ink-soft)}
 
+/* Extras na página inicial */
+.xhead{display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 12px;margin:32px 0 12px}
+.xhead h2{font-size:1.4rem}
+.xhead p{color:var(--ink-soft)}
+.tile.extra{border-style:dashed}
+.tile.extra:hover{border-style:solid}
+.tile.extra .tstat{background:color-mix(in srgb,var(--t) 15%,var(--surface));color:var(--ink)}
+.more{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:16px;font-weight:700;color:var(--ink-soft)}
+
+/* Festa de anos saudável */
+.bunting{display:block;width:100%;height:auto;max-height:84px;margin:-6px 0 6px}
+.hero.compact{margin-bottom:22px}
+.hero.compact .hero-bot svg{width:clamp(70px,12vw,96px)}
+.festa{display:grid;grid-template-columns:minmax(0,1fr) 330px;gap:22px;align-items:start}
+@media (max-width:900px){.festa{grid-template-columns:minmax(0,1fr)}}
+.psec{display:flex;flex-direction:column;gap:10px}
+.psec + .psec{margin-top:28px}
+.psec h2{font-size:1.45rem;display:flex;align-items:center;gap:10px}
+.psec h2::before{content:"";width:16px;height:16px;border-radius:6px;background:var(--c);flex:none}
+.psec .sub{color:var(--ink-soft);margin-bottom:4px}
+.pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px}
+.pcard{display:flex;flex-direction:column;gap:10px;background:var(--surface);border:2px solid var(--line);border-radius:20px;padding:14px;transition:border-color .15s,box-shadow .15s}
+.pcard.on{border-color:var(--btn-bg);box-shadow:0 4px 0 0 var(--btn-bg)}
+.ptop{display:flex;gap:12px;align-items:flex-start}
+.ptop .fi{width:54px;height:54px;flex:none}
+.ptop div{min-width:0}
+.ptop b{display:block;font-family:var(--f-display);font-size:1.12rem;line-height:1.2}
+.ptop span{display:block;color:var(--ink-soft);font-size:.95rem;line-height:1.4;margin-top:3px}
+.pcard details{border-top:2px dashed var(--line);padding-top:8px}
+.pcard summary{cursor:pointer;list-style:none;display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:.95rem;color:var(--ink-soft);min-height:32px;border-radius:8px}
+.pcard summary::-webkit-details-marker{display:none}
+.pcard summary::before{content:"+";width:22px;height:22px;border-radius:50%;background:var(--surface-2);display:grid;place-items:center;font-family:var(--f-display);font-weight:800;color:var(--ink)}
+.pcard details[open] summary::before{content:"−"}
+.pcard ol{margin:6px 0 0;padding-left:1.25em;display:grid;gap:5px;font-size:.95rem;line-height:1.45}
+.pcard details .link{display:block;margin-top:6px}
+.pbtn{margin-top:auto;display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:44px;padding:6px 14px;border-radius:999px;border:2px solid var(--line);background:var(--surface);font-weight:700;font-family:var(--f-display)}
+.pbtn:hover{border-color:var(--btn-bg)}
+.pbtn svg{width:16px;height:16px}
+.pbtn[aria-pressed="true"]{background:var(--btn-bg);border-color:var(--btn-bg);color:var(--btn-fg)}
+.plan{position:sticky;top:calc(env(safe-area-inset-top,0px) + 12px)}
+@media (max-width:900px){.plan{position:static}}
+.plist{list-style:none;padding:0;margin:0 0 4px;display:grid;gap:6px}
+.plist li{display:flex;align-items:center;gap:8px;padding:5px 6px 5px 8px;border-radius:12px;background:var(--surface-2);font-weight:700;font-size:.95rem;line-height:1.25}
+.plist .fi{width:30px;height:30px;flex:none}
+.plist li span{flex:1;min-width:0}
+.pempty{color:var(--ink-soft);margin-bottom:4px}
+.tips{margin:0;padding-left:1.2em;display:grid;gap:4px}
+
+/* Bolo de caneca do Chef NutriBot */
+.meta{display:flex;flex-wrap:wrap;gap:8px;margin:-6px 0 16px}
+.meta span{padding:4px 12px;border-radius:999px;background:var(--surface);border:2px solid var(--line);font-weight:700;font-size:.9rem}
+.ckwrap{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(0,1fr);gap:18px;align-items:start}
+@media (max-width:900px){.ckwrap{grid-template-columns:minmax(0,1fr)}}
+.scenebox{border:2px solid var(--line);border-radius:24px;overflow:hidden;background:var(--sc-wall)}
+.scene{display:block;width:100%;height:auto}
+.scene .only{display:none}
+.scene[data-step="1"] .s1,.scene[data-step="2"] .s2,.scene[data-step="3"] .s3,.scene[data-step="4"] .s4,.scene[data-step="5"] .s5,.scene[data-step="6"] .s6,.scene[data-step="7"] .s7{display:inline}
+.scene[data-step="7"] .not7{display:none}
+.scene .arm{fill:none;stroke:#1d6b3f;stroke-width:13;stroke-linecap:round}
+.scene .hand{fill:#2e9d5b;stroke:#1d6b3f;stroke-width:3}
+.scene .bot{animation:bob2 3s ease-in-out infinite}
+@keyframes bob2{50%{transform:translateY(-3px)}}
+.scene .eyes{transform-box:fill-box;transform-origin:center;animation:blinky 4.5s infinite}
+@keyframes blinky{0%,92%,100%{transform:scaleY(1)}95%{transform:scaleY(.1)}}
+.scene .rub,.scene .point{transform-origin:226px 198px;animation:rub .5s ease-in-out infinite alternate}
+.scene .point{animation-duration:.9s}
+@keyframes rub{from{transform:rotate(-4deg)}to{transform:rotate(4deg)}}
+.scene .wave{transform-origin:174px 198px;animation:wave .7s ease-in-out infinite alternate}
+@keyframes wave{from{transform:rotate(-10deg)}to{transform:rotate(12deg)}}
+.scene .mash{animation:mash .6s ease-in-out infinite}
+@keyframes mash{50%{transform:translateY(12px)}}
+.scene .shellL{transform-box:fill-box;transform-origin:100% 50%;animation:shellL 2.4s ease-in-out infinite}
+.scene .shellR{transform-box:fill-box;transform-origin:0 50%;animation:shellR 2.4s ease-in-out infinite}
+@keyframes shellL{0%,28%,92%,100%{transform:none}40%,80%{transform:translateX(-7px) rotate(-24deg)}}
+@keyframes shellR{0%,28%,92%,100%{transform:none}40%,80%{transform:translateX(7px) rotate(24deg)}}
+.scene .yolk{animation:yolk 2.4s ease-in infinite}
+@keyframes yolk{0%,36%{transform:translateY(0);opacity:0}42%{transform:translateY(0);opacity:1}72%{transform:translateY(34px);opacity:1}76%,100%{transform:translateY(36px);opacity:0}}
+.scene .pour{transform-origin:226px 196px;animation:pour 1.4s ease-in-out infinite alternate}
+@keyframes pour{from{transform:rotate(-3deg)}to{transform:rotate(4deg)}}
+.scene .flake{animation:fall 1.2s linear infinite}
+@keyframes fall{0%{transform:translateY(0);opacity:0}12%{opacity:1}100%{transform:translateY(26px);opacity:1}}
+.scene .fan{transform-origin:226px 196px;animation:fan .4s ease-in-out infinite alternate}
+@keyframes fan{from{transform:rotate(-10deg)}to{transform:rotate(9deg)}}
+.scene .cheerR{transform-origin:226px 196px;animation:cheerR .55s ease-in-out infinite alternate}
+.scene .cheerL{transform-origin:174px 196px;animation:cheerL .55s ease-in-out infinite alternate}
+@keyframes cheerR{to{transform:rotate(9deg)}}
+@keyframes cheerL{to{transform:rotate(-9deg)}}
+.scene .flow{stroke-dasharray:8 6;animation:flow .45s linear infinite}
+@keyframes flow{to{stroke-dashoffset:-14}}
+.scene .bub{transform-box:fill-box;transform-origin:center;animation:bub 2.2s ease-out infinite}
+@keyframes bub{0%{transform:translateY(0) scale(.6);opacity:0}15%{opacity:1}100%{transform:translateY(-56px) scale(1.1);opacity:0}}
+.scene .steam{animation:steam 2.4s ease-in-out infinite}
+@keyframes steam{0%{transform:translateY(6px);opacity:0}40%{opacity:.95}100%{transform:translateY(-18px);opacity:0}}
+.scene .hg{transform-box:fill-box;transform-origin:center;animation:hg 4s ease-in-out infinite}
+@keyframes hg{0%,76%{transform:rotate(0)}92%,100%{transform:rotate(180deg)}}
+.scene .drop{animation:drop .55s cubic-bezier(.3,1.5,.6,1) both}
+@keyframes drop{from{transform:translateY(-36px);opacity:0}to{transform:none;opacity:1}}
+.scene .spark{transform-box:fill-box;transform-origin:center;animation:spark 1.6s ease-in-out infinite}
+@keyframes spark{0%,100%{transform:scale(.4);opacity:.25}50%{transform:scale(1);opacity:1}}
+.scene .glow{opacity:0}
+.scene.running .glow{animation:glow .9s ease-in-out infinite alternate}
+@keyframes glow{from{opacity:.2}to{opacity:.55}}
+#mwDome{transform-box:fill-box;transform-origin:50% 100%;transform:scaleY(.12)}
+.stepcard{margin-top:14px;background:var(--surface);border:2px solid var(--line);border-radius:24px;padding:18px clamp(16px,3vw,24px)}
+.stephead{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+.adult{display:inline-flex;align-items:center;gap:6px;padding:3px 12px;border-radius:999px;background:var(--tip-bg);border:2px solid var(--tip-line);font-weight:700;font-size:.88rem}
+.adult svg{width:16px;height:16px}
+.stepcard .qrow{margin:8px 0}
+.stepcard p{font-size:1.12rem;max-width:62ch}
+.mw{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;margin-top:14px}
+.mw .note{margin:0;flex:1;min-width:22ch;font-size:.92rem}
+.cknav{display:flex;align-items:center;gap:10px;margin-top:20px;flex-wrap:wrap}
+.ckdots{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;flex:1;min-width:0}
+.ckdot{width:32px;height:32px;border-radius:50%;border:2px solid var(--line);background:var(--surface);font-family:var(--f-display);font-weight:800;font-size:.9rem;display:grid;place-items:center;padding:0}
+.ckdot.done{background:var(--ok-bg);border-color:var(--ok);color:var(--ok)}
+.ckdot.cur{background:var(--btn-bg);border-color:var(--btn-bg);color:var(--btn-fg)}
+@media (max-width:520px){.ckdots{order:-1;flex-basis:100%}.cknav .btn{flex:1}}
+.recipe h3{font-size:1.05rem;margin:18px 0 6px}
+.hint2{color:var(--ink-soft);font-size:.92rem;margin:-6px 0 10px}
+.ing{list-style:none;padding:0;margin:0;display:grid;gap:6px}
+.ingb{width:100%;display:flex;align-items:center;gap:10px;text-align:left;padding:6px 10px;min-height:48px;border-radius:14px;border:2px solid var(--line);background:var(--surface);line-height:1.3;font-size:.98rem}
+.ingb .fi{width:34px;height:34px;flex:none}
+.ingb .cbox{flex:none;width:24px;height:24px;border-radius:7px;border:2px solid var(--line);display:grid;place-items:center}
+.ingb .cbox svg{width:14px;height:14px;opacity:0}
+.ingb[aria-pressed="true"]{background:var(--ok-bg);border-color:var(--ok)}
+.ingb[aria-pressed="true"] .cbox{background:var(--ok);border-color:var(--ok);color:var(--surface)}
+.ingb[aria-pressed="true"] .cbox svg{opacity:1}
+.tools{color:var(--ink-soft);line-height:1.5}
+.warn{margin-top:16px;padding:12px 14px;border-radius:16px;background:var(--tip-bg);border:2px dashed var(--tip-line)}
+.warn ul{margin:6px 0 0;padding-left:1.15em;display:grid;gap:5px;font-size:.95rem}
+.vars{margin-top:18px}
+.vlist{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px}
+.vlist li{display:flex;gap:10px;align-items:flex-start;padding:12px;border-radius:16px;background:var(--surface-2)}
+.vlist .fi{width:42px;height:42px;flex:none}
+.vlist span{min-width:0}
+.vlist b{display:block;font-family:var(--f-display);font-size:1.05rem}
+.vlist .link{display:inline;margin-left:2px}
+
+/* Pergunta com imagens */
+.opts.pics{grid-template-columns:repeat(2,minmax(0,1fr))}
+.opt.pic{flex-direction:column;align-items:stretch;gap:8px;padding:10px}
+.pimg{display:block;border-radius:12px;background:var(--surface-2);overflow:hidden}
+.pimg svg{display:block;width:100%;height:auto}
+.pcap{display:flex;align-items:center;gap:10px;font-size:1rem;line-height:1.3}
+.plate .ln{stroke:var(--icon-line);stroke-width:1.4;stroke-linejoin:round}
+
+/* Narrador da receita */
+.narr{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;margin-top:12px}
+.narr .chip{display:inline-flex;align-items:center;gap:6px;min-height:40px}
+.narr .chip svg{width:16px;height:16px}
+.narrst{font-weight:700;color:var(--ink-soft);font-size:.92rem}
+.scene .mouth{transform-box:fill-box;transform-origin:50% 0}
+.scene.talking .mouth{animation:talk .2s ease-in-out infinite alternate}
+@keyframes talk{from{transform:scaleY(.3)}to{transform:scaleY(1.35)}}
+
 @media (prefers-reduced-motion: reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
 </style>
 </head>
 <body>
+
 <div class="app">
   <header class="top">
     <button class="brand" data-go="inicio" aria-label="NutriBot, voltar ao início"><span id="brandbot"></span><span><b>NutriBot</b><small>O teu amigo da alimentação saudável</small></span></button>
@@ -376,6 +540,60 @@ const FI={
   gomas:bear(13,29,'#e2453a')+bear(35,29,'#f2cd3c')+bear(24,25,'#4caf50')
 };
 const fi=id=>`<svg class="fi" viewBox="0 0 48 48" aria-hidden="true">${FI[id]}</svg>`;
+Object.assign(FI,{
+  espetadas:'<path d="M7 41L41 7" stroke="#b08457" stroke-width="2.4" stroke-linecap="round"/><circle class="ln" cx="13.5" cy="34.5" r="5.5" fill="#f5e6a8"/><circle class="ln" cx="20.5" cy="27.5" r="5.5" fill="#e2453a"/><circle cx="20.5" cy="27.5" r="2.6" fill="#fbf1d8"/><circle class="ln" cx="27.5" cy="20.5" r="5.5" fill="#b8cc4a"/><circle class="ln" cx="34.5" cy="13.5" r="5.5" fill="#f5e6a8"/>',
+  sandes:'<path class="ln" fill="#d9a35f" d="M24 40C24 40 6 29 6 17.5 6 12 10 8 15 8c4 0 7 2.5 9 6 2-3.5 5-6 9-6 5 0 9 4 9 9.5C42 29 24 40 24 40Z"/><path fill="#f7e3b8" d="M24 35C24 35 11 27 11 18.5 11 15 13.5 12.5 16.5 12.5c3 0 5.5 2 7.5 5 2-3 4.5-5 7.5-5 3 0 5.5 2.5 5.5 6C37 27 24 35 24 35Z"/><path d="M14 23c3-2 5 2 8 0s5 2 8 0 4 1 5 0" stroke="#7cb342" stroke-width="2.4" fill="none" stroke-linecap="round"/>',
+  palitos:'<rect class="ln" x="15.5" y="6" width="5.5" height="24" rx="2.75" fill="#f59a3c" transform="rotate(-12 18 18)"/><rect class="ln" x="21.3" y="4" width="5.5" height="24" rx="2.75" fill="#8bc34a"/><rect class="ln" x="27" y="6" width="5.5" height="24" rx="2.75" fill="#e2453a" transform="rotate(12 30 18)"/><path class="ln" fill="#f7f4ed" d="M12 22h24l-3 18a2.5 2.5 0 0 1-2.5 2h-13a2.5 2.5 0 0 1-2.5-2z"/><path d="M13.3 29h21.4" stroke="#93bfe9" stroke-width="3"/>',
+  pizzas:'<circle class="ln" cx="24" cy="24" r="17" fill="#e8c27d"/><circle cx="24" cy="24" r="13.5" fill="#e2453a"/><g fill="#fff3c4"><circle cx="18" cy="19" r="3"/><circle cx="29.5" cy="20" r="3.2"/><circle cx="21" cy="30" r="3"/><circle cx="31" cy="29.5" r="2.6"/></g><g fill="#4caf50"><rect x="22" y="13.5" width="6" height="2.6" rx="1.3"/><rect x="13" y="24" width="6" height="2.6" rx="1.3"/><rect x="26" y="33" width="6" height="2.6" rx="1.3"/></g>',
+  pipocas:'<g class="ln" fill="#fffbea"><circle cx="16" cy="15" r="5"/><circle cx="24" cy="11" r="5.5"/><circle cx="32" cy="15" r="5"/><circle cx="20" cy="18" r="4.5"/><circle cx="28" cy="18" r="4.5"/></g><path fill="#ffffff" d="M11 18h26l-3 23H14z"/><path d="M17.6 18l1.2 23M24 18v23M30.4 18l-1.2 23" stroke="#e2453a" stroke-width="3.4"/><path class="ln" fill="none" d="M11 18h26l-3 23H14z"/>',
+  gelados:'<rect x="22" y="30" width="4" height="13" rx="2" fill="#d2a46b"/><path class="ln" fill="#f8c8d4" d="M14 15a10 10 0 0 1 20 0v16a2 2 0 0 1-2 2H16a2 2 0 0 1-2-2z"/><g fill="#e2453a"><circle cx="19" cy="17" r="1.8"/><circle cx="27" cy="21" r="1.8"/><circle cx="21" cy="26" r="1.8"/><circle cx="29" cy="13" r="1.6"/></g>',
+  boloanos:'<rect x="5" y="40" width="38" height="3" rx="1.5" fill="#c7d3e6"/><rect class="ln" x="8" y="21" width="32" height="19" rx="3" fill="#f2d9c4"/><path d="M8 31h32" stroke="#e8a0a0" stroke-width="2.4"/><rect class="ln" x="8" y="18" width="32" height="7" rx="3.5" fill="#ffffff"/><g class="ln" fill="#e2453a"><circle cx="14" cy="17" r="3.4"/><circle cx="34" cy="17" r="3.4"/></g><rect x="22.5" y="6" width="3" height="12" rx="1" fill="#3f86d4"/><path d="M24 1.5c2.2 2.6 2.2 4.4 0 5.6-2.2-1.2-2.2-3 0-5.6z" fill="#f2b21b"/>',
+  aguaarom:'<path class="ln" fill="none" d="M34 18c5 0 7 3 7 7s-2.5 7-6.5 7"/><path fill="#e7f6fb" d="M13 10h20l-2 4c2.5 3 4 7 4 13v10a4 4 0 0 1-4 4H15a4 4 0 0 1-4-4V27c0-6 1.5-10 4-13z"/><path fill="#9ad9ee" d="M11.6 24h22.8c.4 1 .6 2 .6 3v10a4 4 0 0 1-4 4H15a4 4 0 0 1-4-4V27c0-1 .2-2 .6-3z"/><circle cx="19" cy="32" r="4.5" fill="#f39a2b"/><circle cx="19" cy="32" r="3" fill="#ffd28a"/><path d="M26 28c3-3.5 7-2.5 7-.5-2.5 2.5-4.5 3-7 .5z" fill="#4caf50"/><circle cx="28" cy="36.5" r="2.6" fill="#e2453a"/><path class="ln" fill="none" d="M13 10h20l-2 4c2.5 3 4 7 4 13v10a4 4 0 0 1-4 4H15a4 4 0 0 1-4-4V27c0-6 1.5-10 4-13z"/>',
+  batido:'<path d="M35 4h-4l-3 15" stroke="#3f86d4" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path class="ln" fill="#f4a7b9" d="M13 14h22l-3 26a2.5 2.5 0 0 1-2.5 2h-11a2.5 2.5 0 0 1-2.5-2z"/><path fill="#ffffff" opacity=".6" d="M13.2 14h21.6l-.5 4.5H13.7z"/><circle class="ln" cx="35" cy="14" r="4.5" fill="#e2453a"/>',
+  tesouro:'<path class="ln" fill="#f3e1b5" d="M7 12l11-4 12 4 11-4v28l-11 4-12-4-11 4z"/><path d="M18 8v28M30 12v28" stroke="#d8bf86" stroke-width="1.4"/><path d="M11 31c4-1 6-6 10-6s5 4 9 2" stroke="#b5372b" stroke-width="2" stroke-dasharray="2.5 2.5" fill="none" stroke-linecap="round"/><path d="M33 21l5 5M38 21l-5 5" stroke="#b5372b" stroke-width="2.6" stroke-linecap="round"/>',
+  estafeta:'<path d="M11 6v37" stroke="#8a6a3d" stroke-width="3" stroke-linecap="round"/><path class="ln" fill="#3d9a4b" d="M12 8c8-3 13 3 26 0v18c-13 3-18-3-26 0z"/><circle cx="25" cy="17" r="5.5" fill="#ffffff"/><path d="M25 11.5v11M19.5 17h11" stroke="#3d9a4b" stroke-width="1.4"/>',
+  oficina:'<g class="ln" fill="#ffffff"><circle cx="16" cy="20" r="8"/><circle cx="24" cy="15" r="9.5"/><circle cx="32" cy="20" r="8"/></g><g fill="#ffffff"><circle cx="16" cy="20" r="7"/><circle cx="24" cy="15" r="8.5"/><circle cx="32" cy="20" r="7"/></g><rect class="ln" x="14" y="24" width="20" height="15" rx="2" fill="#ffffff"/><path d="M19 29v7M24 29v7M29 29v7" stroke="#c3cdda" stroke-width="1.6" stroke-linecap="round"/>',
+  estatua:'<path d="M18 34V13l18-4v21" stroke="#b2477a" stroke-width="2.6" fill="none" stroke-linejoin="round"/><path d="M18 18l18-4" stroke="#b2477a" stroke-width="4"/><ellipse class="ln" cx="14.5" cy="34.5" rx="5" ry="4" fill="#b2477a" transform="rotate(-20 14.5 34.5)"/><ellipse class="ln" cx="32.5" cy="30.5" rx="5" ry="4" fill="#b2477a" transform="rotate(-20 32.5 30.5)"/>',
+  vaso:'<path d="M24 26V15" stroke="#3d9a4b" stroke-width="2.4" stroke-linecap="round"/><path class="ln" fill="#6cc46a" d="M24 18c-1-6-6-9-11-8 0 6 5 9 11 8z"/><path class="ln" fill="#4caf50" d="M24 15c1-6 6-9 11-8 0 6-5 9-11 8z"/><path class="ln" fill="#d9774a" d="M13 27h22l-3 14H16z"/><rect class="ln" x="10.5" y="23" width="27" height="6" rx="2" fill="#e8895a"/>',
+  garrafa:'<rect class="ln" x="19" y="4" width="10" height="5" rx="1.5" fill="#3d9a4b"/><path class="ln" fill="#cfeef7" d="M18 12c0-2 1.5-3 3-3h6c1.5 0 3 1 3 3v3c3 1.5 4 4 4 7v17a3 3 0 0 1-3 3H17a3 3 0 0 1-3-3V22c0-3 1-5.5 4-7z"/><rect x="14.8" y="25" width="18.4" height="9" fill="#3d9a4b"/><path d="M18.5 29.5h11" stroke="#ffffff" stroke-width="1.6" stroke-linecap="round"/>',
+  lapis:'<g class="ln"><path fill="#e2453a" d="M10 41V16h7v25z"/><path fill="#f6d7a7" d="M10 16l3.5-9 3.5 9z"/><path fill="#f2cd3c" d="M20.5 39V13h7v26z"/><path fill="#f6d7a7" d="M20.5 13l3.5-9 3.5 9z"/><path fill="#3f86d4" d="M31 41V16h7v25z"/><path fill="#f6d7a7" d="M31 16l3.5-9 3.5 9z"/></g><g fill="#1b2747"><path d="M12.5 10.5l1-3.5 1 3.5z"/><path d="M23 7.5l1-3.5 1 3.5z"/><path d="M33.5 10.5l1-3.5 1 3.5z"/></g>',
+  cacau:'<rect class="ln" x="12" y="14" width="24" height="28" rx="3" fill="#6b4226"/><rect class="ln" x="10" y="9" width="28" height="7" rx="2.5" fill="#8a5a3a"/><rect x="15" y="22" width="18" height="10" rx="2" fill="#f2d9c4"/>',
+  fermento:'<rect class="ln" x="10" y="11" width="28" height="28" rx="2" fill="#f6ebc8"/><path d="M10 17h28" stroke="#d9c7a6" stroke-width="1.6"/><circle cx="24" cy="28" r="5.5" fill="#e3a940"/>',
+  canela:'<rect class="ln" x="8" y="15" width="32" height="7" rx="3.5" fill="#a0612f" transform="rotate(-12 24 18.5)"/><rect class="ln" x="8" y="25" width="32" height="7" rx="3.5" fill="#b8763d" transform="rotate(-12 24 28.5)"/>',
+  frutos:'<path class="ln" fill="#e2453a" d="M18 15c-6 0-9 5-7 11s6 11 7 11 5-5 7-11-1-11-7-11z"/><path d="M14 14c2-3 6-3 8 0" stroke="#4caf50" stroke-width="2.6" fill="none" stroke-linecap="round"/><g fill="#ffd9d4"><circle cx="16" cy="21" r=".9"/><circle cx="20.5" cy="23" r=".9"/><circle cx="17" cy="27" r=".9"/></g><circle class="ln" cx="32" cy="31" r="5.5" fill="#4a5fc1"/><circle class="ln" cx="34" cy="20" r="4.8" fill="#5b6fd1"/>'
+});
+const ROBOT_PARTY=ROBOT.replace(/<path d="M32 15V8"[^>]*\/><path d="M32 8c[^>]*\/>/,'<path d="M32 2L23 16h18z" fill="#e25a3c"/><path d="M27.5 9h9M25 13h14" stroke="#ffd45e" stroke-width="2"/><circle cx="32" cy="2.6" r="2.6" fill="#ffd45e"/>');
+TI.party=`<svg ${T}><path d="M12 3a6 6 0 0 1 6 6c0 4-3 7-6 7s-6-3-6-7a6 6 0 0 1 6-6z"/><path d="M10.5 16h3l-1.5 2z"/><path d="M12 18c0 2-2 2.5-1 4"/></svg>`;
+TI.chef=`<svg ${T}><path d="M7 14a4 4 0 0 1-.5-7.9A5 5 0 0 1 12 3a5 5 0 0 1 5.5 3.1A4 4 0 0 1 17 14"/><path d="M7 13v7h10v-7"/><path d="M7 17h10"/></svg>`;
+ICON.adult='<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="7" r="3.6" fill="currentColor"/><path d="M5 21c0-4.2 3.1-7 7-7s7 2.8 7 7z" fill="currentColor"/></svg>';
+ICON.play='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg>';
+ICON.stop='<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6.5" y="6.5" width="11" height="11" rx="2" fill="currentColor"/></svg>';
+/* Pratos ilustrados para a avaliação final */
+const PLATE_BASE='<circle cx="110" cy="100" r="84" fill="#eef2f7" stroke="#c3cdda" stroke-width="2"/><circle cx="110" cy="100" r="68" fill="#ffffff" stroke="#dde4ee" stroke-width="2"/>';
+const GLASS_P='M206 30h26l-3.5 56.3a4 4 0 0 1-4 3.7h-11a4 4 0 0 1-4-3.7z';
+const glassSvg=(liq,soda)=>`<path d="${GLASS_P}" fill="#eef8fc"/><path d="M207 44h24.2l-2.7 42.3a4 4 0 0 1-4 3.7h-10.8a4 4 0 0 1-4-3.7z" fill="${liq}"/>${soda?'<path d="M228 14L220 76" stroke="#e2453a" stroke-width="4" stroke-linecap="round"/><g fill="#f4e2cf"><circle cx="213" cy="58" r="1.7"/><circle cx="223" cy="66" r="1.5"/><circle cx="216" cy="76" r="1.7"/><circle cx="225" cy="52" r="1.4"/><circle cx="214" cy="84" r="1.3"/></g>':'<path d="M211 36l2.5 46" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" opacity=".75"/>'}<path class="ln" fill="none" d="${GLASS_P}"/>`;
+const rrect=(x,y,w,h,r,fill,cls)=>`<rect${cls?' class="ln"':''} x="${x}" y="${y}" width="${w}" height="${h}" rx="${(Math.min(w,h)/2.5).toFixed(1)}" fill="${fill}" transform="rotate(${r} ${x+w/2} ${y+h/2})"/>`;
+const PLATES={
+  plateA:`<svg class="plate" viewBox="0 0 240 190" aria-hidden="true">${PLATE_BASE}`
+    +[[130,94,18],[142,90,-12],[154,98,28],[124,106,-32],[138,108,8],[150,114,-22],[132,120,24],[146,124,-8]].map(([x,y,r])=>rrect(x,y,8,32,r,'#f5c542',true)).join('')
+    +'<path d="M132 54c7-6 19-4 21 3 2 8-6 13-13 12-8-1-13-8-8-15z" fill="#d6312f"/><ellipse cx="140" cy="58" rx="4" ry="2" fill="#ef6b5f"/>'
+    +Array.from({length:14},(_,i)=>{const a=i/14*Math.PI*2;return `<circle cx="${(88+36*Math.cos(a)).toFixed(1)}" cy="${(90+36*Math.sin(a)).toFixed(1)}" r="8" fill="#6cbf4f"/>`;}).join('')
+    +'<circle cx="88" cy="90" r="38" fill="#6cbf4f"/><rect x="60" y="62" width="56" height="56" rx="4" fill="#f6c443" transform="rotate(15 88 90)"/><circle class="ln" cx="88" cy="90" r="33" fill="#d48a3e"/><ellipse cx="78" cy="78" rx="15" ry="8" fill="#e6a35a"/>'
+    +'<g fill="#fff3d6">'+[[-12,-14,30],[4,-18,-20],[16,-6,60],[-18,2,-40],[-4,-4,10],[10,10,-30],[-10,14,45],[18,16,15],[0,22,-10]].map(([dx,dy,r])=>`<ellipse cx="${88+dx}" cy="${90+dy}" rx="2.8" ry="1.4" transform="rotate(${r} ${88+dx} ${90+dy})"/>`).join('')+'</g>'
+    +glassSvg('#6b3a1f',true)+'</svg>',
+  plateB:`<svg class="plate" viewBox="0 0 240 190" aria-hidden="true">${PLATE_BASE}`
+    +[[80,55,11,0],[98,61,11,1],[66,77,13,1],[90,83,13,0],[56,102,13,0],[80,106,14,1],[100,102,10,0],[66,128,13,1],[90,130,12,0],[82,150,10,1]].map(([x,y,r,c])=>`<circle cx="${x}" cy="${y}" r="${r}" fill="${c?'#84cc5f':'#5fb548'}"/><path d="M${x-r*.5} ${y+r*.3}Q${x} ${y-r*.2} ${x+r*.5} ${y-r*.4}" fill="none" stroke="#b6e39a" stroke-width="1.6" stroke-linecap="round"/>`).join('')
+    +[[58,112,30],[100,90,-20],[98,144,50],[76,60,70],[60,86,-40]].map(([x,y,r])=>rrect(x-2,y-7,4,14,r,'#f5922e',false)).join('')
+    +[[96,70],[70,94],[88,118],[72,144]].map(([x,y])=>`<circle class="ln" cx="${x}" cy="${y}" r="8" fill="#e2453a"/><circle cx="${x}" cy="${y}" r="5.5" fill="#f2836c"/><circle cx="${x-2}" cy="${y-1}" r="1.1" fill="#fbe3a0"/><circle cx="${x+2}" cy="${y+1.5}" r="1.1" fill="#fbe3a0"/>`).join('')
+    +'<ellipse class="ln" cx="143" cy="68" rx="27" ry="21" fill="#fbf5e6"/><g fill="#e6d6ad">'
+    +[[130,60,20],[138,55,-30],[148,57,10],[156,63,-20],[132,70,-10],[142,65,40],[152,72,0],[160,71,30],[136,79,15],[146,80,-35],[125,66,60],[154,81,20],[140,73,-60]].map(([x,y,r])=>`<ellipse cx="${x}" cy="${y}" rx="3" ry="1.5" transform="rotate(${r} ${x} ${y})"/>`).join('')+'</g>'
+    +'<path class="ln" d="M117 124c9-12 39-14 51-4 6 6 4 16-4 20-12 7-37 6-45-2-4-4-5-9-2-14z" fill="#eebf86"/><path d="M130 117l8 26M144 115l8 27M157 117l6 22" stroke="#c58a4c" stroke-width="3" stroke-linecap="round"/><g fill="#4caf50"><circle cx="160" cy="124" r="2.4"/><circle cx="165" cy="128" r="2"/><circle cx="162" cy="131" r="2.2"/></g>'
+    +glassSvg('#a6dcf0',false)+'</svg>'
+};
+const EXTRAS=[
+  {id:'festa',title:'Festa de anos saudável',sub:'Ideias para festas',desc:'Comida, bebidas, jogos e lembranças',color:'var(--g-proteina)',icon:TI.party},
+  {id:'cozinha',title:'Bolo de caneca do Chef NutriBot',sub:'Receita animada',desc:'Uma receita para fazeres com um adulto',color:'var(--g-leguminosas)',icon:TI.chef}
+];
 const face=k=>{const m=['M16 28q8 8 16 0','M17 30h14','M16 32q8-6 16 0'][k];return `<svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="20" style="fill:var(--g-gorduras)"/><circle cx="17.5" cy="20" r="2.6" fill="#2a2412"/><circle cx="30.5" cy="20" r="2.6" fill="#2a2412"/><path d="${m}" fill="none" stroke="#2a2412" stroke-width="2.8" stroke-linecap="round"/></svg>`;};
 
 /* ---------- Conteúdos (escritos e validados pelo grupo) ---------- */
@@ -426,7 +644,7 @@ const QUIZ_F=[
   {c:'Roda dos Alimentos',q:'Na Roda dos Alimentos, qual destes grupos devemos comer em MENOR quantidade?',o:['Hortícolas','Fruta','Gorduras e óleos','Cereais, derivados e tubérculos'],a:2,e:'As gorduras e óleos são o grupo mais pequeno da Roda (2%). Precisamos só de um pouco, como um fio de azeite na sopa.'},
   {c:'Água',q:'Está muito calor e acabaste de jogar à bola. O que deves fazer?',o:['Beber água','Beber um refrigerante bem fresco','Esperar até ter muita sede','Comer um gelado'],a:0,e:'Quando está calor ou fazemos desporto perdemos água pelo suor. Devemos beber água, mesmo antes de ter sede.'},
   {c:'Fruta e hortícolas',q:'O que é melhor: comer uma laranja inteira ou beber um sumo de laranja?',o:['O sumo, porque tem mais vitaminas','A laranja inteira, porque tem mais fibra','É exatamente igual','Nenhum dos dois faz bem'],a:1,e:'A fruta inteira tem toda a fibra e deixa-nos saciados mais tempo. No sumo perde-se parte da fibra.'},
-  {c:'Refeições',q:'Quantas refeições devemos fazer por dia?',o:['Só uma refeição grande','Duas refeições','Cerca de 5 ou 6, sem passar muitas horas sem comer','Comer a toda a hora, sem parar'],a:2,e:'Pequeno-almoço, meio da manhã, almoço, lanche e jantar. O ideal é não passar mais de 3 horas e meia sem comer.'},
+  {c:'Refeições',q:'Olha para os dois pratos. Qual é o almoço mais equilibrado: o prato A ou o prato B?',pics:['plateA','plateB'],o:['Prato A: hambúrguer, batatas fritas e refrigerante','Prato B: peixe grelhado, arroz, salada e água'],a:1,e:'O prato B tem metade de salada, uma parte de arroz, uma parte de peixe e água para beber. O prato A tem pouca salada e muita gordura, sal e açúcar: é para comer só de vez em quando.'},
   {c:'Açúcar',q:'Na lista de ingredientes de uns cereais, o açúcar aparece em primeiro lugar. O que quer dizer?',o:['Que têm pouco açúcar','Que o açúcar é o ingrediente em maior quantidade','Que não têm açúcar','Não quer dizer nada'],a:1,e:'Na lista de ingredientes, o primeiro é o que existe em maior quantidade. Estes cereais têm muito açúcar!'},
   {c:'Sal',q:'Para dar sabor à comida sem usar muito sal, podemos usar…',o:['Mais sal','Cubos de caldo','Ketchup','Ervas aromáticas, como salsa, coentros ou orégãos'],a:3,e:'As ervas aromáticas dão sabor sem sal. Os cubos de caldo e o ketchup também têm muito sal.'}
 ];
@@ -480,7 +698,7 @@ const STEPS=[
 ];
 
 /* ---------- Estado ---------- */
-function fresh(){return {v:1,done:{quiz:false,perguntas:false,lanche:false,final:false},quizScore:null,quizRes:null,explored:[],lanche:[],reasons:{},final:null,big:false};}
+function fresh(){return {v:1,done:{quiz:false,perguntas:false,lanche:false,final:false},quizScore:null,quizRes:null,explored:[],lanche:[],reasons:{},final:null,festa:[],narr:false,big:false};}
 function load(){try{const s=JSON.parse(localStorage.getItem(KEY));if(s&&s.v===1)return Object.assign(fresh(),s);}catch(e){}return fresh();}
 function save(){try{localStorage.setItem(KEY,JSON.stringify(state));}catch(e){}}
 let state=load();
@@ -489,7 +707,24 @@ let chat=[],cat='todas',busy=false,typing=false;
 let fin={};
 
 /* ---------- Utilitários ---------- */
-function speak(t){try{const s=window.speechSynthesis;s.cancel();const u=new SpeechSynthesisUtterance(String(t).replace(/[«»]/g,''));u.lang='pt-PT';u.rate=.95;const vs=s.getVoices();const v=vs.find(v=>/pt[-_]PT/i.test(v.lang))||vs.find(v=>/^pt/i.test(v.lang));if(v)u.voice=v;s.speak(u);}catch(e){}}
+let spTok=0,spTimer=null,spQ=[];
+function talk(on){const sc=document.getElementById('scene');if(sc)sc.classList.toggle('talking',!!on);}
+function stopSpeech(){spTok++;clearTimeout(spTimer);spQ=[];try{window.speechSynthesis.cancel();}catch(e){}talk(false);}
+function speak(t,done){
+  stopSpeech();const my=spTok;
+  const fin=()=>{if(my!==spTok)return;spTok++;clearTimeout(spTimer);spQ=[];talk(false);if(done)done();};
+  const txt=String(t).replace(/[«»]/g,'');
+  setTimeout(()=>{
+    if(my!==spTok)return;
+    try{
+      const s=window.speechSynthesis,vs=s.getVoices(),v=vs.find(x=>/pt[-_]PT/i.test(x.lang))||vs.find(x=>/^pt/i.test(x.lang));
+      const parts=(txt.match(/[^.!?:]+[.!?:]*/g)||[txt]).map(p=>p.trim()).filter(Boolean);
+      parts.forEach((p,i)=>{const u=new SpeechSynthesisUtterance(p);u.lang='pt-PT';u.rate=.95;if(v)u.voice=v;u.onerror=fin;if(i===parts.length-1)u.onend=fin;spQ.push(u);s.speak(u);});
+      talk(true);
+    }catch(e){}
+  },60);
+  spTimer=setTimeout(fin,Math.max(4000,txt.length*110+3000));
+}
 const sayBtn=t=>canSpeak?`<button class="say" data-say="${esc(t)}" aria-label="Ouvir em voz alta" title="Ouvir">${ICON.speaker}</button>`:'';
 const vhead=(k,t)=>`<div class="vhead"><button class="back" data-go="inicio">${ICON.back}Início</button><div><span class="kicker">${k}</span><h1>${t}</h1></div></div>`;
 const conceptList=res=>`<ul class="concepts">${(res||[]).map(r=>`<li class="${r.ok?'ok':'no'}">${r.ok?ICON.check:ICON.x}<span>${r.c}</span></li>`).join('')}</ul>`;
@@ -514,8 +749,8 @@ function pips(){
   document.getElementById('pips').innerHTML=STEPS.map(s=>{const d=state.done[s.id];return `<button class="pip ${d?'done':''} ${cur===s.id?'cur':''}" data-go="${s.id}" aria-label="Etapa ${s.n}: ${s.title}${d?' (feita)':''}" title="${s.title}">${d?ICON.check:s.n}</button>`;}).join('');
 }
 function go(name){
-  cur=name;view.onclick=null;
-  const V={inicio:vInicio,quiz:()=>vQuiz(false),perguntas:vPerguntas,lanche:vLanche,final:()=>vFinal(false)};
+  cur=name;view.onclick=null;stopMw();stopPlay();stopSpeech();
+  const V={inicio:vInicio,quiz:()=>vQuiz(false),perguntas:vPerguntas,lanche:vLanche,final:()=>vFinal(false),festa:vFesta,cozinha:vCozinha};
   (V[name]||vInicio)();
   pips();window.scrollTo(0,0);
   const h=view.querySelector('h1');if(h){h.tabIndex=-1;h.focus({preventScroll:true});}
@@ -534,6 +769,8 @@ function vInicio(){
     <span class="ticon">${s.icon}</span>
     <span class="ttext"><small>Etapa ${s.n} · ${s.sub}</small><b>${s.title}</b><span>${s.desc}</span></span>
     <span class="tstat">${d?ICON.check+'Feito':nx?'Começar':'Por fazer'}</span></button>`;}).join('')}</div>
+  <div class="xhead"><h2>Extras</h2><p>Para explorar no fim da aula ou em casa, com a família.</p></div>
+  <div class="tiles">${EXTRAS.map(x=>`<button class="tile extra" data-go="${x.id}" style="--t:${x.color}"><span class="ticon">${x.icon}</span><span class="ttext"><small>${x.sub}</small><b>${x.title}</b><span>${x.desc}</span></span><span class="tstat">Abrir${ICON.arrow}</span></button>`).join('')}</div>
   <footer class="foot">
     <p><b>Como funciona o NutriBot:</b> todas as respostas foram escritas e verificadas pelo grupo, com base na Roda dos Alimentos da Direção-Geral da Saúde. O NutriBot não usa inteligência artificial em tempo real: só responde com respostas preparadas e não pede dados pessoais. Em caso de dúvida, pergunta a um adulto.</p>
     <button class="link" data-reset>Recomeçar para outro aluno</button>
@@ -549,7 +786,7 @@ function runQuiz(list,meta,onDone){
       <div class="qmeta"><span>Pergunta ${i+1} de ${list.length}</span><span class="tag">${q.c}</span></div>
       <div class="bar"><span style="width:${i/list.length*100}%"></span></div>
       <div class="qrow"><h2 id="qt">${q.q}</h2>${sayBtn(q.q+' '+q.o.join('. '))}</div>
-      <div class="opts" role="group" aria-labelledby="qt">${q.o.map((t,k)=>`<button class="opt" data-k="${k}"><span class="key">${'ABCD'[k]}</span><span>${t}</span></button>`).join('')}</div>
+      <div class="opts${q.pics?' pics':''}" role="group" aria-labelledby="qt">${q.o.map((t,k)=>q.pics?`<button class="opt pic" data-k="${k}"><span class="pimg">${PLATES[q.pics[k]]}</span><span class="pcap"><span class="key">${'ABCD'[k]}</span><span>${t.replace(/^Prato [A-D]: (.)/,(m,c)=>c.toUpperCase())}</span></span></button>`:`<button class="opt" data-k="${k}"><span class="key">${'ABCD'[k]}</span><span>${t}</span></button>`).join('')}</div>
       <div class="fb" id="fb" hidden aria-live="polite"></div>
       <div class="actions" id="nx" hidden><button class="btn" id="nextb">${i===list.length-1?'Ver resultado':'Seguinte'}${ICON.arrow}</button></div>
     </div>`;
@@ -558,7 +795,7 @@ function runQuiz(list,meta,onDone){
     const q=list[i],ok=k===q.a;if(ok)score++;res.push({c:q.c,ok});
     view.querySelectorAll('.opt').forEach((b,j)=>{b.disabled=true;if(j===q.a)b.classList.add('right');else if(j===k)b.classList.add('wrong');else b.classList.add('dim');});
     const fb=view.querySelector('#fb');fb.hidden=false;fb.className='fb '+(ok?'good':'bad');
-    fb.innerHTML=`${ok?'<b>Certo!</b>':`<b>Quase!</b> A resposta certa é a ${'ABCD'[q.a]}.`} ${q.e}`;
+    fb.innerHTML=`${ok?'<b>Certo!</b>':`<b>Quase!</b> A resposta certa é ${q.pics?'o prato':'a'} ${'ABCD'[q.a]}.`} ${q.e}`;
     view.querySelector('.bar span').style.width=((i+1)/list.length*100)+'%';
     view.querySelector('#nx').hidden=false;view.querySelector('#nextb').focus();
   };
@@ -809,6 +1046,7 @@ function finalResults(){
         <div class="row now"><span>Agora</span><span class="track"><span style="width:${s/6*100}%"></span></span><span>${s}/6</span></div></div>`:''}
       ${conceptList(f.res)}
       <div class="pledge"><b>O teu desafio desta semana:</b> ${PLEDGES[f.pledge]}.</div>
+      <div class="more"><span>Continua em casa:</span><button class="btn ghost small" data-go="cozinha">Bolo de caneca</button><button class="btn ghost small" data-go="festa">Festa de anos saudável</button></div>
       <div class="actions"><button class="btn" data-go="inicio">Voltar ao início</button><button class="btn ghost" id="again">Fazer outra vez</button></div>
     </section>
     <section class="box">
@@ -821,6 +1059,291 @@ function finalResults(){
   view.onclick=e=>{if(e.target.closest('#again'))vFinal(true);};
 }
 
+/* ---------- Extra: Festa de anos saudável ---------- */
+const FSEC=[
+  {id:'comer',t:'Para comer',s:'Coloridas, fáceis de fazer e cheias de sabor.',c:'var(--g-fruta)'},
+  {id:'beber',t:'Para beber',s:'A água é a bebida principal da festa.',c:'var(--g-agua)'},
+  {id:'brincar',t:'Para brincar',s:'Uma festa boa é uma festa com movimento!',c:'var(--g-horticolas)'},
+  {id:'levar',t:'Para levar para casa',s:'Lembranças sem doces, para guardar ou plantar.',c:'var(--g-laticinios)'}
+];
+const FESTA=[
+  {sec:'comer',id:'espetadas',name:'Espetadas de fruta',desc:'Banana, maçã e pera num pau de espetada.',tags:['fruta'],how:['Lava a fruta e pede a um adulto para a cortar aos pedaços.','Enfia pedaços de banana, maçã e pera. Podes juntar outras frutas de que gostes.','Os paus têm pontas: usa-os com cuidado.']},
+  {sec:'comer',id:'sandes',name:'Mini-sandes divertidas',desc:'Pão de mistura cortado em estrelas e corações.',tags:[],how:['Barra o pão com queijo fresco ou húmus.','Junta tomate, alface ou fiambre de peru.','Corta com formas de bolachas para ficarem divertidas.']},
+  {sec:'comer',id:'palitos',name:'Palitos com molho de iogurte',desc:'Cenoura, pepino e pimento para molhar.',tags:['legumes'],how:['Um adulto corta os legumes em palitos.','Mistura iogurte natural com ervas aromáticas e umas gotas de limão.','Serve em copinhos, com o molho no fundo.']},
+  {sec:'comer',id:'pizzas',name:'Mini-pizzas caseiras',desc:'Pão pita com tomate, queijo e legumes.',tags:['legumes'],how:['Barra o pão pita com polpa de tomate.','Junta queijo, cogumelos, pimento e orégãos, ou outros ingredientes da tua preferência.','Um adulto leva ao forno durante cerca de 10 minutos.']},
+  {sec:'comer',id:'pipocas',name:'Pipocas caseiras',desc:'Feitas em casa, com pouco sal e sem açúcar.',tags:[],how:['Um adulto aquece um fio de azeite num tacho com tampa.','Junta o milho e espera que deixe de estalar.','Tempera com uma pitada de sal ou de canela.']},
+  {sec:'comer',id:'gelados',name:'Gelados de iogurte e fruta',desc:'Picolés caseiros e fresquinhos.',tags:['fruta'],how:['Tritura iogurte natural com a fruta da tua preferência, como banana, laranja ou morangos.','Deita em formas de gelado e põe um pau em cada uma.','Deixa no congelador pelo menos 4 horas.']},
+  {sec:'comer',id:'boloanos',name:'Bolo de anos com fruta',desc:'O bolo também faz parte da festa!',tags:['fruta'],how:['Escolhe uma receita com menos açúcar, como um bolo de iogurte ou de banana.','Decora com fruta fresca em vez de coberturas e confeitos.','Corta fatias pequenas: chega para todos festejarem.']},
+  {sec:'beber',id:'aguaarom',name:'Água aromatizada',desc:'Água fresca com fruta e hortelã, numa jarra bonita.',tags:['agua'],how:['Enche uma jarra com água fresca.','Junta rodelas de laranja e de limão, morangos e folhas de hortelã.','Deixa no frigorífico 1 hora antes da festa.']},
+  {sec:'beber',id:'batido',name:'Batido de fruta',desc:'Fruta batida com leite ou iogurte, sem açúcar.',tags:['fruta'],how:['Junta banana, morangos e leite.','Um adulto tritura tudo na liquidificadora.','Serve logo, em copos pequenos.']},
+  {sec:'brincar',id:'tesouro',name:'Caça ao tesouro da fruta',desc:'Pistas escondidas levam até uma cesta de fruta.',tags:['ativo'],how:['Escreve pistas com adivinhas sobre alimentos.','Esconde-as pela casa ou pelo jardim.','No fim, o tesouro é uma cesta de fruta para partilhar.']},
+  {sec:'brincar',id:'estafeta',name:'Estafeta da Roda dos Alimentos',desc:'Duas equipas correm para pôr cada alimento no grupo certo.',tags:['ativo'],how:['Desenha a Roda dos Alimentos numa cartolina grande.','Faz cartões com desenhos de alimentos.','À vez, cada criança corre, pega num cartão e põe-no no grupo certo.']},
+  {sec:'brincar',id:'estatua',name:'Jogo da estátua',desc:'Dança com a música e fica parado quando ela para.',tags:['ativo'],how:['Escolhe músicas animadas.','Quando a música para, todos ficam como estátuas.','Quem se mexer escolhe a música seguinte. Ninguém sai do jogo!']},
+  {sec:'brincar',id:'oficina',name:'Oficina do Chef NutriBot',desc:'Cada convidado faz e decora o seu bolo de caneca.',tags:[],link:'cozinha',how:['Prepara os ingredientes numa mesa, um conjunto por criança.','Segue a receita animada do Chef NutriBot.','Um adulto trata do micro-ondas.']},
+  {sec:'levar',id:'vaso',name:'Vaso com sementes',desc:'Para plantar salsa, manjericão ou hortelã em casa.',tags:[],how:['Enche vasos pequenos com terra.','Junta um saquinho de sementes e um cartão com instruções.','Cada convidado decora o seu vaso.']},
+  {sec:'levar',id:'garrafa',name:'Garrafa de água reutilizável',desc:'Com o nome de cada convidado.',tags:[],how:['Escolhe garrafas que se possam lavar e voltar a usar.','Escreve o nome de cada convidado com autocolantes.','Assim lembram-se de beber água todos os dias.']},
+  {sec:'levar',id:'lapis',name:'Lápis e desenhos para colorir',desc:'Desenhos de frutas e legumes para pintar.',tags:[],how:['Imprime desenhos de frutas, legumes e da Roda dos Alimentos.','Junta lápis de cor.','Enrola tudo com uma fita.']}
+];
+function bunting(){
+  const cols=['fruta','gorduras','horticolas','laticinios','proteina','cereais','agua','leguminosas'];
+  const Y=x=>{const t=x/600;return 6+96*t*(1-t);};
+  let s='';
+  for(let i=0;i<15;i++){const x=20+i*40;s+=`<path d="M${x-15} ${Y(x-15).toFixed(1)}L${x+15} ${Y(x+15).toFixed(1)}L${x} ${(Y(x)+24).toFixed(1)}Z" style="fill:var(--g-${cols[i%cols.length]})"/>`;}
+  return `<svg class="bunting" viewBox="0 0 600 58" aria-hidden="true"><path d="M0 6Q300 54 600 6" fill="none" style="stroke:var(--ink-soft)" stroke-width="1.5"/>${s}</svg>`;
+}
+function festaCard(f){
+  const on=state.festa.includes(f.id);
+  return `<article class="pcard ${on?'on':''}" id="pc-${f.id}">
+    <div class="ptop">${fi(f.id)}<div><b>${f.name}</b><span>${f.desc}</span></div></div>
+    <details><summary>Como fazer</summary><ol>${f.how.map(h=>`<li>${h}</li>`).join('')}</ol>${f.link?`<button class="link" data-go="${f.link}">Ver a receita animada</button>`:''}</details>
+    <button class="pbtn" data-pick="${f.id}" aria-pressed="${on}">${on?ICON.check+'Na minha festa':'Juntar à festa'}</button>
+  </article>`;
+}
+function vFesta(){
+  const msg='Uma festa de anos é dia de festejar, e o bolo de anos também faz parte! Escolhe ideias saudáveis e divertidas para a tua festa.';
+  view.innerHTML=vhead('Extra · Ideias para festas','Festa de anos saudável')+bunting()+`
+  <section class="hero compact"><div class="hero-bot">${ROBOT_PARTY}</div><div class="speech"><p>${msg}</p>${sayBtn(msg)}</div></section>
+  <div class="festa">
+    <div>${FSEC.map(s=>`<section class="psec" style="--c:${s.c}" aria-labelledby="ps-${s.id}"><h2 id="ps-${s.id}">${s.t}</h2><p class="sub">${s.s}</p><div class="pgrid">${FESTA.filter(f=>f.sec===s.id).map(festaCard).join('')}</div></section>`).join('')}</div>
+    <aside class="box plan" id="plan" aria-labelledby="plan-h"></aside>
+  </div>
+  <footer class="foot"><p><b>Dicas para os adultos</b></p><ul class="tips">
+    <li>Ponham a fruta e os legumes no centro da mesa, onde se veem bem.</li>
+    <li>Tenham sempre água fresca à mão.</li>
+    <li>Perguntem antes se algum convidado tem alergias ou intolerâncias alimentares.</li>
+    <li>O bolo de anos é para festejar: fatias pequenas e sem culpa.</li>
+    <li>Mais tempo a brincar, menos tempo sentado à mesa.</li>
+  </ul></footer>`;
+  renderPlan();
+  view.onclick=e=>{
+    const b=e.target.closest('[data-pick]');
+    if(b){const id=b.dataset.pick,i=state.festa.indexOf(id);if(i>=0)state.festa.splice(i,1);else state.festa.push(id);save();updCard(id);renderPlan();return;}
+    const r=e.target.closest('[data-unpick]');
+    if(r){const id=r.dataset.unpick;state.festa=state.festa.filter(x=>x!==id);save();updCard(id);renderPlan();const pb=view.querySelector(`[data-pick="${id}"]`);if(pb)pb.focus({preventScroll:true});}
+  };
+}
+function updCard(id){
+  const c=document.getElementById('pc-'+id);if(!c)return;
+  const on=state.festa.includes(id),b=c.querySelector('.pbtn');
+  c.classList.toggle('on',on);b.setAttribute('aria-pressed',String(on));b.innerHTML=on?ICON.check+'Na minha festa':'Juntar à festa';
+}
+function renderPlan(){
+  const p=document.getElementById('plan');if(!p)return;
+  const picks=state.festa.map(id=>FESTA.find(f=>f.id===id)).filter(Boolean);
+  const has=t=>picks.some(f=>f.tags.includes(t));
+  const checks=[
+    {t:'Fruta ou legumes na mesa',ok:has('fruta')||has('legumes')},
+    {t:'Água para beber',ok:has('agua')},
+    {t:'Uma brincadeira para mexer o corpo',ok:has('ativo')},
+    {t:'Uma lembrança sem doces',ok:picks.some(f=>f.sec==='levar')}
+  ];
+  const all=checks.every(c=>c.ok);
+  p.innerHTML=`<h2 id="plan-h">A minha festa <span class="count">${picks.length} ${picks.length===1?'ideia':'ideias'}</span></h2>
+    ${picks.length?`<ul class="plist">${picks.map(f=>`<li>${fi(f.id)}<span>${f.name}</span><button class="rm" data-unpick="${f.id}" aria-label="Tirar ${f.name}">${ICON.x}</button></li>`).join('')}</ul>`
+      :'<p class="pempty">Ainda não escolheste nada. Toca em «Juntar à festa» nas ideias de que gostas.</p>'}
+    <ul class="checks" aria-live="polite">${checks.map(c=>`<li class="${c.ok?'ok':''}"><span class="ck">${c.ok?ICON.check:''}</span><span><b>${c.t}</b></span></li>`).join('')}</ul>
+    ${all?`<div class="win">${ROBOT_PARTY}<div><b>Festa pronta!</b><p>Saudável, colorida e muito divertida.</p></div></div>`:''}`;
+}
+
+/* ---------- Extra: Bolo de caneca do Chef NutriBot ---------- */
+const CK=[
+  {t:'Lava as mãos',x:'Lava bem as mãos com água e sabão, durante pelo menos 20 segundos. Depois, põe o avental: vamos cozinhar!'},
+  {t:'Esmaga a banana',x:'Põe meia banana bem madura dentro da caneca e esmaga-a com o garfo até ficar um puré.'},
+  {t:'Junta o ovo',x:'Parte o ovo para dentro da caneca e mexe bem com o garfo. Depois de mexeres no ovo cru, lava as mãos outra vez.'},
+  {t:'Junta os ingredientes secos',x:'Junta 3 colheres de sopa de flocos de aveia, 1 colher de chá de cacau, meia colher de chá de fermento e uma pitada de canela. Mexe até não haver grumos.'},
+  {t:'Vai ao micro-ondas',x:'Pede a um adulto para pôr a caneca no micro-ondas durante cerca de 2 minutos. O bolo está pronto quando cresce e o meio fica firme.',adult:true},
+  {t:'Deixa arrefecer',x:'A caneca sai muito quente, por isso é o adulto que a tira do micro-ondas. Espera 2 minutos antes de lhe tocar.',adult:true},
+  {t:'Decora e come',x:'Põe por cima uma colher de iogurte natural e fruta cortada. Bom apetite, chef!'}
+];
+const ING=[
+  {id:'banana',q:'½ banana bem madura'},
+  {id:'ovo',q:'1 ovo'},
+  {id:'aveia',q:'3 colheres de sopa de flocos de aveia finos'},
+  {id:'cacau',q:'1 colher de chá de cacau magro em pó, sem açúcar'},
+  {id:'fermento',q:'½ colher de chá de fermento em pó'},
+  {id:'canela',q:'1 pitada de canela'},
+  {id:'iogurte',q:'1 colher de sopa de iogurte natural, para decorar'},
+  {id:'frutos',q:'Fruta cortada, para decorar'}
+];
+/* Explicações faladas pelo Chef NutriBot (narrador) */
+const FALA_INTRO='Olá! Eu sou o Chef NutriBot. Hoje vamos fazer juntos um bolo de caneca, sem açúcar adicionado. Vais precisar de: meia banana bem madura, um ovo, três colheres de sopa de flocos de aveia, uma colher de chá de cacau magro em pó, meia colher de chá de fermento em pó e uma pitada de canela. Para decorar, usamos iogurte natural e fruta cortada. Precisas também de uma caneca grande, um garfo e duas colheres. Vamos começar!';
+const FALA=[
+  'Passo um: lavar as mãos. Antes de cozinhar, lavamos sempre as mãos. Molha as mãos, põe sabão e esfrega bem as palmas, entre os dedos e debaixo das unhas, durante vinte segundos. É o tempo de cantar os parabéns duas vezes! Passa por água, seca com uma toalha limpa e põe o avental.',
+  'Passo dois: esmagar a banana. Descasca meia banana bem madura e põe-na dentro da caneca. Com o garfo, carrega na banana até ficar um puré, sem pedaços grandes. A banana madura é que vai deixar o bolo docinho, sem precisarmos de açúcar.',
+  'Passo três: juntar o ovo. Bate o ovo devagarinho na beira da caneca e abre a casca com os polegares, para o ovo cair lá dentro. Se cair algum bocadinho de casca, tira-o com uma colher. Mexe bem com o garfo até a banana e o ovo ficarem misturados. Depois, lava as mãos outra vez, porque tocaste no ovo cru.',
+  'Passo quatro: juntar os ingredientes secos. Junta três colheres de sopa de flocos de aveia, uma colher de chá de cacau, meia colher de chá de fermento e uma pitada de canela. Uma pitada é só um bocadinho, o que cabe entre dois dedos. Mexe bem até não haver grumos. A massa deve ficar só até meio da caneca, porque o bolo vai crescer.',
+  'Passo cinco: ir ao micro-ondas. Agora chama um adulto! O micro-ondas é sempre com um adulto. Ele põe a caneca lá dentro durante cerca de dois minutos. Espreita pelo vidro e vais ver o bolo a crescer! Está pronto quando o meio fica firme.',
+  'Passo seis: deixar arrefecer. A caneca sai do micro-ondas muito quente, por isso é o adulto que a tira, com uma pega. Espera dois minutos antes de tocares no bolo. Enquanto esperas, podes preparar a fruta para a decoração.',
+  'Passo sete: decorar e comer. Põe por cima uma colher de iogurte natural e a fruta cortada que escolheste. Agora é só comer devagar e saborear. Bom apetite, chef!'
+];
+const FALA_END='Muito bem, chef! O teu bolo de caneca está pronto. Não tem açúcar adicionado: é a banana madura que lhe dá o sabor doce. Podes experimentar as variações que estão aqui em baixo.';
+const SCENE=`<svg class="scene" id="scene" data-step="1" viewBox="0 0 640 340" role="img" aria-label="O Chef NutriBot a fazer um bolo de caneca">
+<defs><pattern id="ck-tiles" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" style="stroke:var(--sc-tile)" stroke-width="2"/></pattern></defs>
+<rect width="640" height="400" style="fill:var(--sc-wall)"/>
+<rect width="640" height="262" fill="url(#ck-tiles)"/>
+<g><circle cx="70" cy="78" r="26" style="fill:var(--sc-clock);stroke:var(--sc-line2)" stroke-width="4"/><path d="M70 58v5M70 93v5M50 78h5M85 78h5" style="stroke:var(--sc-line2)" stroke-width="2.5" stroke-linecap="round"/><path d="M70 78V65M70 78l9 5" stroke="#1b2747" stroke-width="3" stroke-linecap="round"/><circle cx="70" cy="78" r="2.5" fill="#e25a3c"/></g>
+<g><rect x="430" y="104" width="180" height="9" rx="3" style="fill:var(--sc-wood)"/><rect x="446" y="72" width="26" height="32" rx="6" fill="#f6e7c1"/><rect x="443" y="65" width="32" height="9" rx="3" fill="#e25a3c"/><rect x="488" y="80" width="24" height="24" rx="6" fill="#e3f1d0"/><rect x="485" y="73" width="30" height="8" rx="3" fill="#3d9a4b"/><circle cx="548" cy="76" r="8" fill="#4caf50"/><circle cx="563" cy="74" r="9" fill="#3d9a4b"/><circle cx="555" cy="65" r="8" fill="#6cc46a"/><path d="M540 104l4-22h22l4 22z" fill="#d9774a"/></g>
+<g class="bot">
+<g class="only s1"><g class="rub"><path class="arm" d="M226 198Q290 212 334 222"/><circle class="hand" cx="336" cy="223" r="11"/></g><g class="wave"><path class="arm" d="M174 198Q138 178 120 142"/><circle class="hand" cx="118" cy="138" r="11"/></g></g>
+<g class="only s2 s3 s4 s6"><path class="arm" d="M174 200Q146 226 130 248"/><circle class="hand" cx="128" cy="251" r="11"/></g>
+<g class="only s2"><g class="mash"><path class="arm" d="M226 198Q284 196 328 180"/><path d="M334 180L336 216M329 214H343M330 214V230M336 214V232M342 214V230" fill="none" stroke="#9aa8bb" stroke-width="3.5" stroke-linecap="round"/><circle class="hand" cx="332" cy="178" r="11"/></g></g>
+<g class="only s3"><path class="arm" d="M226 196Q282 170 322 152"/><circle class="yolk" cx="336" cy="172" r="7" fill="#f2b21b"/><path class="shellL" d="M336 155A12 15 0 0 0 336 185Z" fill="#fbf3e4" stroke="#d9c7a6" stroke-width="2"/><path class="shellR" d="M336 155A12 15 0 0 1 336 185Z" fill="#fbf3e4" stroke="#d9c7a6" stroke-width="2"/><circle class="hand" cx="326" cy="150" r="11"/></g>
+<g class="only s4"><g class="pour"><path class="arm" d="M226 196Q280 178 316 164"/><path d="M322 165L337 175" stroke="#9aa8bb" stroke-width="4" stroke-linecap="round"/><ellipse cx="343" cy="179" rx="9" ry="5.5" fill="#c3cdda" transform="rotate(30 343 179)"/><ellipse cx="343" cy="178" rx="6" ry="3" fill="#e6cf9a" transform="rotate(30 343 178)"/><circle class="hand" cx="318" cy="162" r="11"/></g><g fill="#e6cf9a"><ellipse class="flake" cx="340" cy="186" rx="2.6" ry="1.6"/><ellipse class="flake" style="animation-delay:-.3s" cx="346" cy="186" rx="2.6" ry="1.6"/><ellipse class="flake" style="animation-delay:-.6s" cx="337" cy="186" rx="2.6" ry="1.6"/><ellipse class="flake" style="animation-delay:-.9s" cx="343" cy="186" rx="2.6" ry="1.6"/></g><g fill="#6b4226"><circle class="flake" style="animation-delay:-.15s" cx="342" cy="186" r="1.5"/><circle class="flake" style="animation-delay:-.75s" cx="339" cy="186" r="1.5"/></g></g>
+<g class="only s5"><g class="point"><path class="arm" d="M226 198Q300 198 370 186"/><circle class="hand" cx="373" cy="185" r="11"/></g><path class="arm" d="M174 198Q146 170 132 142"/><circle class="hand" cx="130" cy="138" r="11"/></g>
+<g class="only s6"><g class="fan"><path class="arm" d="M226 196Q262 168 290 142"/><circle class="hand" cx="292" cy="139" r="11"/></g></g>
+<g class="only s7"><g class="cheerR"><path class="arm" d="M226 196Q268 162 286 120"/><circle class="hand" cx="288" cy="116" r="11"/></g><g class="cheerL"><path class="arm" d="M174 196Q132 162 114 120"/><circle class="hand" cx="112" cy="116" r="11"/></g></g>
+<rect x="188" y="148" width="24" height="18" fill="#1d6b3f"/>
+<rect x="158" y="162" width="84" height="116" rx="24" fill="#2e9d5b"/>
+<path d="M182 176Q200 152 218 176" fill="none" stroke="#fff" stroke-width="3"/>
+<rect x="178" y="174" width="44" height="34" rx="7" fill="#fff"/>
+<path d="M168 206H232L238 280H162Z" fill="#fff"/>
+<rect x="165" y="202" width="70" height="8" rx="4" fill="#e25a3c"/>
+<path d="M200 228c-3-3-10-2-10 5 0 6 5 11 7 11 1 0 2-.6 3-.6s2 .6 3 .6c2 0 7-5 7-11 0-7-7-8-10-5z" fill="#e25a3c"/>
+<path d="M200 228c0-3 2-5 4-6" fill="none" stroke="#6b4a2b" stroke-width="2" stroke-linecap="round"/>
+<rect x="140" y="98" width="12" height="28" rx="6" fill="#1d6b3f"/>
+<rect x="248" y="98" width="12" height="28" rx="6" fill="#1d6b3f"/>
+<rect x="150" y="70" width="100" height="84" rx="26" fill="#2e9d5b"/>
+<rect x="162" y="84" width="76" height="56" rx="18" fill="#eafbf0"/>
+<g class="eyes not7"><circle cx="184" cy="108" r="6.5" fill="#15301f"/><circle cx="216" cy="108" r="6.5" fill="#15301f"/><circle cx="186" cy="106" r="2" fill="#fff"/><circle cx="218" cy="106" r="2" fill="#fff"/></g>
+<g class="only s7" fill="none" stroke="#15301f" stroke-width="3.5" stroke-linecap="round"><path d="M177 111q7-9 14 0"/><path d="M209 111q7-9 14 0"/></g>
+<path class="mouth" d="M188 122q12 11 24 0" fill="none" stroke="#15301f" stroke-width="3.5" stroke-linecap="round"/>
+<circle cx="172" cy="124" r="4.5" fill="#f6a48f" opacity=".85"/><circle cx="228" cy="124" r="4.5" fill="#f6a48f" opacity=".85"/>
+<g fill="#fff" stroke="#c3cdda" stroke-width="2.5"><circle cx="178" cy="48" r="18"/><circle cx="200" cy="38" r="22"/><circle cx="222" cy="48" r="18"/></g>
+<g fill="#fff"><circle cx="178" cy="48" r="16.5"/><circle cx="200" cy="38" r="20.5"/><circle cx="222" cy="48" r="16.5"/></g>
+<rect x="172" y="52" width="56" height="24" rx="5" fill="#fff" stroke="#c3cdda" stroke-width="2.5"/>
+</g>
+<rect y="262" width="640" height="14" style="fill:var(--sc-top)"/>
+<rect y="276" width="640" height="124" style="fill:var(--sc-counter)"/>
+<g fill="none" style="stroke:var(--sc-line)" stroke-width="2.5"><rect x="22" y="292" width="180" height="64" rx="10"/><rect x="230" y="292" width="180" height="64" rx="10"/><rect x="438" y="292" width="180" height="64" rx="10"/></g>
+<g style="fill:var(--sc-line)"><rect x="182" y="304" width="7" height="22" rx="3.5"/><rect x="243" y="304" width="7" height="22" rx="3.5"/><rect x="451" y="304" width="7" height="22" rx="3.5"/></g>
+<g class="only s1"><rect x="74" y="222" width="34" height="40" rx="9" fill="#f8c8d4"/><rect x="87" y="208" width="8" height="15" fill="#b2477a"/><rect x="87" y="203" width="22" height="6" rx="3" fill="#b2477a"/><circle cx="91" cy="240" r="7" fill="#fff" opacity=".8"/><circle cx="99" cy="251" r="3.5" fill="#fff" opacity=".8"/><rect x="284" y="255" width="108" height="9" rx="4.5" fill="#c3cdda"/><path d="M394 262V174Q394 150 370 150H352Q342 150 342 160V166" fill="none" stroke="#9aa8bb" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/><rect x="386" y="188" width="24" height="8" rx="4" fill="#8794a8"/><path class="flow" d="M342 172V210" stroke="#8fd3ee" stroke-width="6" stroke-linecap="round"/><g fill="#fff" fill-opacity=".9" stroke="#8fd3ee" stroke-width="1.5"><circle class="bub" cx="322" cy="214" r="6"/><circle class="bub" style="animation-delay:-.5s" cx="352" cy="208" r="5"/><circle class="bub" style="animation-delay:-1s" cx="330" cy="200" r="4"/><circle class="bub" style="animation-delay:-1.5s" cx="358" cy="222" r="6.5"/><circle class="bub" style="animation-delay:-1.8s" cx="314" cy="228" r="4.5"/></g></g>
+<g class="only s2"><rect x="38" y="254" width="122" height="9" rx="4" fill="#d8a868"/><path d="M56 249c10 4 26 4 38-4 2-1.5 4 0 3 2-9 10-30 12-43 6-2-1-1-5 2-4z" fill="#f2cd3c" stroke="#c9a227" stroke-width="1.5"/></g>
+<g class="only s3"><g fill="#fbf3e4" stroke="#d9c7a6" stroke-width="1.5"><ellipse cx="62" cy="247" rx="9" ry="8"/><ellipse cx="84" cy="247" rx="9" ry="8"/></g><rect x="46" y="248" width="60" height="14" rx="3" fill="#cdb48a"/></g>
+<g class="only s4"><path d="M404 262V216l7-9h38l7 9V262Z" fill="#f3e1b5" stroke="#c9a65e" stroke-width="2"/><rect x="410" y="228" width="40" height="17" rx="3" fill="#fff"/><text x="430" y="241" text-anchor="middle" font-size="10" font-weight="700" fill="#8a6a3d">AVEIA</text><rect x="470" y="222" width="40" height="40" rx="5" fill="#6b4226"/><rect x="467" y="215" width="46" height="9" rx="3" fill="#8a5a3a"/><text x="490" y="246" text-anchor="middle" font-size="9.5" font-weight="700" fill="#fff">CACAU</text><rect x="522" y="234" width="46" height="28" rx="3" fill="#f6ebc8" stroke="#d9c7a6" stroke-width="2"/><text x="545" y="252" text-anchor="middle" font-size="7.5" font-weight="700" fill="#8a6a3d">FERMENTO</text><rect x="580" y="226" width="32" height="36" rx="6" fill="#c98b4a"/><rect x="578" y="219" width="36" height="9" rx="3" fill="#8a5a3a"/><text x="596" y="248" text-anchor="middle" font-size="7.5" font-weight="700" fill="#fff">CANELA</text></g>
+<g class="only s5"><rect x="408" y="166" width="200" height="96" rx="12" fill="#dfe6ef" stroke="#9aa8bb" stroke-width="2"/><rect x="420" y="178" width="124" height="72" rx="8" fill="#1d2a3a"/><rect class="glow" x="420" y="178" width="124" height="72" rx="8" fill="#ffd76a"/><ellipse cx="482" cy="246" rx="40" ry="4" fill="#3a4a5e"/><path d="M500 220h4a7 7 0 0 1 0 14h-4" fill="none" stroke="#3f86d4" stroke-width="4"/><rect x="464" y="212" width="36" height="32" rx="6" fill="#3f86d4"/><ellipse cx="482" cy="212" rx="18" ry="4" fill="#2f6fb5"/><path id="mwDome" d="M465 213Q465 195 482 192Q499 195 499 213Z" fill="#8a5a3a"/><rect x="547" y="188" width="4" height="52" rx="2" fill="#9aa8bb"/><rect x="556" y="178" width="42" height="72" rx="6" fill="#cdd6e2"/><rect x="560" y="184" width="34" height="18" rx="3" fill="#10202c"/><text id="mwTime" x="577" y="197" text-anchor="middle" font-size="11" font-weight="700" fill="#7cf0a0" style="font-family:ui-monospace,Menlo,Consolas,monospace">2:00</text><circle cx="568" cy="216" r="5" fill="#9aa8bb"/><circle cx="586" cy="216" r="5" fill="#9aa8bb"/><rect x="563" y="228" width="28" height="13" rx="4" fill="#3d9a4b"/></g>
+<g class="only s2 s3 s4 s6 s7"><path d="M368 218h7a13 13 0 0 1 0 26h-7" fill="none" stroke="#3f86d4" stroke-width="7"/><rect x="304" y="204" width="64" height="58" rx="10" fill="#3f86d4"/><path d="M324 240c5-9 17-9 24-4-5 9-17 9-24 4z" fill="#fff" opacity=".85"/><ellipse cx="336" cy="204" rx="32" ry="7" fill="#2f6fb5"/><ellipse class="only s2" cx="336" cy="205" rx="27" ry="4.5" fill="#f2d35b"/><ellipse class="only s3" cx="336" cy="205" rx="27" ry="4.5" fill="#f4c95d"/><ellipse class="only s4" cx="336" cy="205" rx="27" ry="4.5" fill="#a4764f"/><g class="only s6 s7"><path d="M306 206Q305 176 336 171Q367 176 366 206Z" fill="#8a5a3a"/><g fill="#6e4429"><circle cx="324" cy="190" r="2"/><circle cx="342" cy="184" r="2"/><circle cx="352" cy="196" r="2"/><circle cx="332" cy="198" r="1.8"/></g></g></g>
+<g class="only s6" fill="none" style="stroke:var(--sc-steam)" stroke-width="3.5" stroke-linecap="round"><path class="steam" d="M324 164q-6-7 0-14t0-14"/><path class="steam" style="animation-delay:-.8s" d="M337 160q-6-7 0-14t0-14"/><path class="steam" style="animation-delay:-1.6s" d="M350 164q-6-7 0-14t0-14"/></g>
+<g class="only s6"><text x="438" y="194" text-anchor="middle" font-size="14" font-weight="800" style="fill:var(--ink);font-family:var(--f-display)">2 min</text><g class="hg"><rect x="420" y="204" width="36" height="6" rx="2" fill="#8a6a3d"/><rect x="420" y="256" width="36" height="6" rx="2" fill="#8a6a3d"/><path d="M426 210h24c0 14-9 16-9 23s9 9 9 23h-24c0-14 9-16 9-23s-9-9-9-23z" fill="#e7f6fb" stroke="#9aa8bb" stroke-width="2"/><path d="M430 216h16l-8 12z" fill="#e3a940"/><path d="M430 254h16l-8-9z" fill="#e3a940"/></g></g>
+<g class="only s7"><path d="M404 244h72q-5 18-36 18t-36-18z" fill="#f39a2b"/><circle cx="419" cy="240" r="5" fill="#4a5fc1"/><circle cx="431" cy="237" r="5.5" fill="#e2453a"/><circle cx="445" cy="239" r="5" fill="#4a5fc1"/><circle cx="458" cy="240" r="5.5" fill="#e2453a"/><circle cx="438" cy="243" r="5" fill="#5b6fd1"/>
+<path class="drop" style="animation-delay:.2s" d="M314 180c-4-6 2-12 8-10 1-7 9-10 15-6 6-5 15-2 15 5 6 0 9 7 4 11z" fill="#fff" stroke="#dfe6ef" stroke-width="2"/>
+<g class="drop" style="animation-delay:.6s"><path d="M318 173a8 8 0 0 1 16 0z" fill="#e2453a"/><circle cx="324" cy="170" r=".9" fill="#ffd9d4"/><circle cx="328" cy="170.5" r=".9" fill="#ffd9d4"/></g>
+<g class="drop" style="animation-delay:.8s"><path d="M340 169a8 8 0 0 1 16 0z" fill="#e2453a"/><circle cx="346" cy="166" r=".9" fill="#ffd9d4"/><circle cx="350" cy="166.5" r=".9" fill="#ffd9d4"/></g>
+<circle class="drop" style="animation-delay:1s" cx="335" cy="162" r="5" fill="#4a5fc1"/><circle class="drop" style="animation-delay:1.15s" cx="327" cy="177" r="4.5" fill="#4a5fc1"/><circle class="drop" style="animation-delay:1.3s" cx="348" cy="177" r="4.5" fill="#5b6fd1"/>
+<g fill="#ffd45e" stroke="#e3a940" stroke-width="1"><path class="spark" d="M392 139l3 8 8 3-8 3-3 8-3-8-8-3 8-3z"/><path class="spark" style="animation-delay:-.5s" d="M404 189l3 8 8 3-8 3-3 8-3-8-8-3 8-3z"/><path class="spark" style="animation-delay:-1s" d="M316 129l3 8 8 3-8 3-3 8-3-8-8-3 8-3z"/><path class="spark" style="animation-delay:-1.3s" d="M290 215l3 8 8 3-8 3-3 8-3-8-8-3 8-3z"/></g></g>
+<g class="only s5"><path d="M284 78l-24 16 36-14z" style="fill:var(--sc-bubble);stroke:var(--sc-line2)" stroke-width="2" stroke-linejoin="round"/><rect x="258" y="38" width="166" height="42" rx="21" style="fill:var(--sc-bubble);stroke:var(--sc-line2)" stroke-width="2"/><text x="341" y="65" text-anchor="middle" font-size="15" font-weight="800" style="fill:var(--ink);font-family:var(--f-display)">Chama um adulto!</text></g>
+</svg>`;
+let ck=1,ckDone=false,mwTimer=null;
+const ingHave=new Set();
+function stopMw(){if(mwTimer){clearInterval(mwTimer);mwTimer=null;}}
+function setMw(sec){
+  const t=document.getElementById('mwTime'),d=document.getElementById('mwDome');if(!t)return;
+  t.textContent=`${Math.floor(sec/60)}:${String(sec%60).padStart(2,'0')}`;
+  if(d)d.style.transform=`scaleY(${(0.12+0.88*(1-sec/120)).toFixed(3)})`;
+}
+function runMw(){
+  stopMw();
+  const sc=document.getElementById('scene'),b=document.getElementById('mwgo');if(!sc)return;
+  let sec=120;setMw(sec);
+  const done=()=>{sc.classList.remove('running');if(b){b.disabled=false;b.textContent='Ligar outra vez';}const n=document.getElementById('mwnote');if(n)n.textContent='Ding! O bolo cresceu e o meio está firme. Agora, deixa arrefecer.';};
+  if(reduce){setMw(0);done();return;}
+  sc.classList.add('running');if(b){b.disabled=true;b.textContent='A cozinhar…';}
+  mwTimer=setInterval(()=>{sec--;setMw(sec);if(sec<=0){stopMw();done();}},70);
+}
+function vCozinha(){
+  ck=1;ckDone=false;
+  view.innerHTML=vhead('Extra · Receita animada','Bolo de caneca do Chef NutriBot')+`
+  <div class="meta"><span>Preparação: 5 min</span><span>Micro-ondas: 2 min</span><span>Para 1 pessoa</span><span>Sem açúcar adicionado</span></div>
+  <div class="ckwrap">
+    <div>
+      <div class="scenebox">${SCENE}</div>
+      ${canSpeak?`<div class="narr"><button class="btn small" id="ckplay"></button><button class="chip" id="ckauto" aria-pressed="${!!state.narr}">${ICON.speaker}<span>Ler cada passo sozinho</span></button><span class="narrst" id="narrst" aria-live="polite"></span></div>`:''}
+      <section class="stepcard" aria-labelledby="cktitle">
+        <div class="stephead"><span class="kicker" id="ckn"></span><span class="adult" id="ckadult" hidden>${ICON.adult}Com um adulto</span></div>
+        <div class="qrow"><h2 id="cktitle"></h2><span id="cksay"></span></div>
+        <p id="cktext" aria-live="polite"></p>
+        <div id="ckextra"></div>
+        <div class="cknav"><button class="btn ghost" id="ckprev">${ICON.back}Anterior</button><div class="ckdots" id="ckdots"></div><button class="btn" id="cknext"></button></div>
+      </section>
+    </div>
+    <aside class="box recipe" aria-labelledby="ing-h">
+      <h2 id="ing-h">Ingredientes <span class="count" id="ingc"></span></h2>
+      <p class="hint2">Toca em cada ingrediente quando o tiveres na bancada.</p>
+      <ul class="ing">${ING.map(i=>`<li><button class="ingb" data-ing="${i.id}" aria-pressed="${ingHave.has(i.id)}"><span class="cbox">${ICON.check}</span>${fi(i.id)}<span>${i.q}</span></button></li>`).join('')}</ul>
+      <h3>Utensílios</h3>
+      <p class="tools">Uma caneca grande, própria para micro-ondas · um garfo · uma colher de sopa · uma colher de chá</p>
+      <div class="warn"><b>Atenção</b><ul>
+        <li>O micro-ondas e a caneca quente são sempre com um adulto.</li>
+        <li>Usa uma caneca sem partes de metal e enche-a só até meio, porque o bolo cresce.</li>
+        <li>Contém ovo e aveia.</li>
+      </ul></div>
+    </aside>
+  </div>
+  <section class="box vars" aria-labelledby="var-h"><h2 id="var-h">Experimenta variações</h2>
+    <ul class="vlist">
+      <li>${fi('maca')}<span><b>Maçã e canela</b>Troca o cacau por 2 colheres de sopa de maçã ralada e mais uma pitada de canela.</span></li>
+      <li>${fi('boloanos')}<span><b>Numa festa de anos</b>Cada convidado faz e decora o seu bolo. <button class="link" data-go="festa">Ver ideias para festas</button></span></li>
+    </ul>
+  </section>`;
+  updIng();renderCk();updPlay();
+  view.onclick=e=>{
+    const g=e.target.closest('[data-ing]');
+    if(g){const id=g.dataset.ing;if(ingHave.has(id))ingHave.delete(id);else ingHave.add(id);g.setAttribute('aria-pressed',String(ingHave.has(id)));updIng();return;}
+    const d=e.target.closest('[data-ck]');
+    if(d){stopPlay();ck=+d.dataset.ck;ckDone=false;renderCk(true);autoRead();return;}
+    if(e.target.closest('#ckprev')){stopPlay();if(ckDone)ckDone=false;else if(ck>1)ck--;renderCk();autoRead();return;}
+    if(e.target.closest('#cknext')){stopPlay();if(ckDone){ck=1;ckDone=false;}else if(ck<CK.length)ck++;else ckDone=true;renderCk();autoRead();return;}
+    if(e.target.closest('#ckplay')){if(playing)stopPlay();else playAll();return;}
+    const a=e.target.closest('#ckauto');
+    if(a){state.narr=!state.narr;save();a.setAttribute('aria-pressed',String(state.narr));if(state.narr){stopPlay();speakStep();}else if(!playing)stopSpeech();return;}
+    if(e.target.closest('#mwgo'))runMw();
+  };
+}
+function updIng(){const c=document.getElementById('ingc');if(c)c.textContent=`${ingHave.size}/${ING.length}`;}
+function renderCk(focusDot){
+  const sc=document.getElementById('scene');if(!sc)return;
+  stopMw();sc.classList.remove('running');sc.setAttribute('data-step',String(ck));
+  const s=CK[ck-1];
+  const title=ckDone?'Bom apetite, chef!':s.t;
+  const text=ckDone?'Fizeste um bolo de caneca sem açúcar adicionado: a banana madura dá o sabor doce. Experimenta as variações aqui em baixo.':s.x;
+  view.querySelector('#ckn').textContent=ckDone?'Receita concluída':`Passo ${ck} de ${CK.length}`;
+  view.querySelector('#ckadult').hidden=!s.adult||ckDone;
+  view.querySelector('#cktitle').textContent=title;
+  view.querySelector('#cktext').textContent=text;
+  view.querySelector('#cksay').innerHTML=sayBtn(ckDone?FALA_END:FALA[ck-1]);
+  view.querySelector('#ckextra').innerHTML=ck===5&&!ckDone?'<div class="mw"><button class="btn small" id="mwgo">Ligar o micro-ondas</button><p class="note" id="mwnote">Simulação rápida. No micro-ondas a sério demora cerca de 2 minutos.</p></div>':'';
+  if(ck===5)setMw(120);
+  view.querySelector('#ckprev').disabled=ck===1&&!ckDone;
+  view.querySelector('#cknext').innerHTML=ckDone?'Fazer outra vez':ck===CK.length?'Concluir'+ICON.check:'Seguinte'+ICON.arrow;
+  view.querySelector('#ckdots').innerHTML=CK.map((c,i)=>{const n=i+1,cur=n===ck&&!ckDone;return `<button class="ckdot ${cur?'cur':''} ${n<ck||ckDone?'done':''}" data-ck="${n}" aria-label="Passo ${n}: ${c.t}"${cur?' aria-current="step"':''}>${n}</button>`;}).join('');
+  if(focusDot){const d=view.querySelector(`[data-ck="${ck}"]`);if(d)d.focus();}
+}
+
+/* Narrador: ouvir a receita toda, passo a passo */
+let playing=false,playTimer=null;
+function setSt(t){const e=document.getElementById('narrst');if(e)e.textContent=t;}
+function updPlay(){const b=document.getElementById('ckplay');if(!b)return;b.innerHTML=playing?ICON.stop+'Parar':ICON.play+'Ouvir a receita toda';b.classList.toggle('ghost',playing);}
+function stopPlay(){if(!playing)return;playing=false;clearTimeout(playTimer);stopSpeech();updPlay();setSt('');}
+function speakStep(){speak(ckDone?FALA_END:FALA[ck-1]);}
+function autoRead(){if(state.narr)speakStep();else stopSpeech();}
+function playAll(){
+  playing=true;updPlay();ck=1;ckDone=false;renderCk();
+  setSt('O Chef NutriBot está a apresentar os ingredientes…');
+  speak(FALA_INTRO,()=>{if(playing)playTimer=setTimeout(playStep,700);});
+}
+function playStep(){
+  if(!playing)return;
+  renderCk();if(ck===5)runMw();
+  setSt(`A explicar o passo ${ck} de ${CK.length}…`);
+  speak(FALA[ck-1],()=>{
+    if(!playing)return;
+    playTimer=setTimeout(()=>{
+      if(!playing)return;
+      if(ck<CK.length){ck++;playStep();}
+      else{ckDone=true;playing=false;updPlay();renderCk();setSt('');speak(FALA_END);}
+    },ck===5?2000:1200);
+  });
+}
+
 /* ---------- Global ---------- */
 function handleReset(b){
   if(!b.classList.contains('armed')){
@@ -830,7 +1353,7 @@ function handleReset(b){
   const big=state.big;state=fresh();state.big=big;chat=[];cat='todas';fin={};save();go('inicio');
 }
 document.addEventListener('click',e=>{
-  const s=e.target.closest('.say');if(s){speak(s.dataset.say);return;}
+  const s=e.target.closest('.say');if(s){stopPlay();speak(s.dataset.say);return;}
   const g=e.target.closest('[data-go]');if(g){go(g.dataset.go);return;}
   const r=e.target.closest('[data-reset]');if(r){handleReset(r);}
 });
@@ -840,7 +1363,7 @@ aa.addEventListener('click',()=>{state.big=!state.big;save();applyBig();});
 document.getElementById('brandbot').innerHTML=ROBOT;
 applyBig();
 const h=(location.hash||'').slice(1);
-go(['quiz','perguntas','lanche','final'].includes(h)?h:'inicio');
+go(['quiz','perguntas','lanche','final','festa','cozinha'].includes(h)?h:'inicio');
 })();
 </script>
 </body>
